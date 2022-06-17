@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package univarsidadg1.vista;
+package grupo1.trasversal.vistas;
 
 /**
  *
@@ -35,21 +35,21 @@ public class Escritorio extends javax.swing.JFrame {
         jMenuItem6 = new javax.swing.JMenuItem();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem10 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem11 = new javax.swing.JMenuItem();
-        jMenuItem12 = new javax.swing.JMenuItem();
-        jMenuItem15 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem13 = new javax.swing.JMenuItem();
-        jMenuItem14 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
-        jMenuItem16 = new javax.swing.JMenuItem();
-        jMenuItem17 = new javax.swing.JMenuItem();
+        jmInscripcion = new javax.swing.JMenu();
+        jmiAlumno = new javax.swing.JMenuItem();
+        jmiMateria = new javax.swing.JMenuItem();
+        jmiSalir = new javax.swing.JMenuItem();
+        jmAlumno = new javax.swing.JMenu();
+        jmiModificarAlumno = new javax.swing.JMenuItem();
+        jmiBajaAlumno = new javax.swing.JMenuItem();
+        jmiConsultarAlumno = new javax.swing.JMenuItem();
+        jmMateria = new javax.swing.JMenu();
+        jmiModificarMateria = new javax.swing.JMenuItem();
+        jmiBajaMateria = new javax.swing.JMenuItem();
+        jmiConsultarMateria = new javax.swing.JMenuItem();
+        jmInforme = new javax.swing.JMenu();
+        jmiInformeAlumno = new javax.swing.JMenuItem();
+        jmiInformeMateria = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -76,59 +76,82 @@ public class Escritorio extends javax.swing.JFrame {
             .addGap(0, 279, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("Inscripcion");
-
-        jMenuItem7.setText("Alumno");
-        jMenu1.add(jMenuItem7);
-
-        jMenuItem8.setText("Materia");
-        jMenu1.add(jMenuItem8);
-
-        jMenuItem10.setText("Salir");
-        jMenu1.add(jMenuItem10);
-
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Alumno ");
-
-        jMenuItem11.setText("Modificar Alumno");
-        jMenu2.add(jMenuItem11);
-
-        jMenuItem12.setText("Baja Alumno");
-        jMenu2.add(jMenuItem12);
-
-        jMenuItem15.setText("Consultar Alumno");
-        jMenu2.add(jMenuItem15);
-
-        jMenuBar1.add(jMenu2);
-
-        jMenu3.setText("Materia");
-
-        jMenuItem13.setText("Modificar Materia");
-        jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem13ActionPerformed(evt);
+        jMenuBar1.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+                jMenuBar1CaretPositionChanged(evt);
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
-        jMenu3.add(jMenuItem13);
 
-        jMenuItem14.setText("Baja Materia");
-        jMenu3.add(jMenuItem14);
+        jmInscripcion.setText("Inscripcion");
 
-        jMenuItem9.setText("Consultar Materia");
-        jMenu3.add(jMenuItem9);
+        jmiAlumno.setText("Alumno");
+        jmiAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiAlumnoActionPerformed(evt);
+            }
+        });
+        jmInscripcion.add(jmiAlumno);
 
-        jMenuBar1.add(jMenu3);
+        jmiMateria.setText("Materia");
+        jmiMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiMateriaActionPerformed(evt);
+            }
+        });
+        jmInscripcion.add(jmiMateria);
 
-        jMenu4.setText("Informes");
+        jmiSalir.setText("Salir");
+        jmiSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiSalirActionPerformed(evt);
+            }
+        });
+        jmInscripcion.add(jmiSalir);
 
-        jMenuItem16.setText("Alumnos");
-        jMenu4.add(jMenuItem16);
+        jMenuBar1.add(jmInscripcion);
 
-        jMenuItem17.setText("Materias");
-        jMenu4.add(jMenuItem17);
+        jmAlumno.setText("Alumno ");
 
-        jMenuBar1.add(jMenu4);
+        jmiModificarAlumno.setText("Modificar Alumno");
+        jmAlumno.add(jmiModificarAlumno);
+
+        jmiBajaAlumno.setText("Baja Alumno");
+        jmAlumno.add(jmiBajaAlumno);
+
+        jmiConsultarAlumno.setText("Consultar Alumno");
+        jmAlumno.add(jmiConsultarAlumno);
+
+        jMenuBar1.add(jmAlumno);
+
+        jmMateria.setText("Materia");
+
+        jmiModificarMateria.setText("Modificar Materia");
+        jmiModificarMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiModificarMateriaActionPerformed(evt);
+            }
+        });
+        jmMateria.add(jmiModificarMateria);
+
+        jmiBajaMateria.setText("Baja Materia");
+        jmMateria.add(jmiBajaMateria);
+
+        jmiConsultarMateria.setText("Consultar Materia");
+        jmMateria.add(jmiConsultarMateria);
+
+        jMenuBar1.add(jmMateria);
+
+        jmInforme.setText("Informes");
+
+        jmiInformeAlumno.setText("Alumnos");
+        jmInforme.add(jmiInformeAlumno);
+
+        jmiInformeMateria.setText("Materias");
+        jmInforme.add(jmiInformeMateria);
+
+        jMenuBar1.add(jmInforme);
 
         setJMenuBar(jMenuBar1);
 
@@ -146,9 +169,42 @@ public class Escritorio extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
+    private void jmiModificarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiModificarMateriaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem13ActionPerformed
+    }//GEN-LAST:event_jmiModificarMateriaActionPerformed
+
+    private void jmiSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiSalirActionPerformed
+    dispose();
+    }//GEN-LAST:event_jmiSalirActionPerformed
+
+    private void jmiAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAlumnoActionPerformed
+         jDesktopPane1.removeAll();
+        InscripcionAlumno ia = new InscripcionAlumno();
+        ia.setVisible(true);
+        jDesktopPane1.add(ia);
+        jDesktopPane1.moveToFront(ia);
+        jDesktopPane1.repaint();
+
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jmiAlumnoActionPerformed
+
+    private void jMenuBar1CaretPositionChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_jMenuBar1CaretPositionChanged
+        
+    }//GEN-LAST:event_jMenuBar1CaretPositionChanged
+
+    private void jmiMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiMateriaActionPerformed
+
+         jDesktopPane1.removeAll();
+        InscripcionMateria im = new InscripcionMateria();
+        im.setVisible(true);
+        jDesktopPane1.add(im);
+        jDesktopPane1.moveToFront(im);
+        jDesktopPane1.repaint();
+
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jmiMateriaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -187,27 +243,27 @@ public class Escritorio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem12;
-    private javax.swing.JMenuItem jMenuItem13;
-    private javax.swing.JMenuItem jMenuItem14;
-    private javax.swing.JMenuItem jMenuItem15;
-    private javax.swing.JMenuItem jMenuItem16;
-    private javax.swing.JMenuItem jMenuItem17;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JMenu jmAlumno;
+    private javax.swing.JMenu jmInforme;
+    private javax.swing.JMenu jmInscripcion;
+    private javax.swing.JMenu jmMateria;
+    private javax.swing.JMenuItem jmiAlumno;
+    private javax.swing.JMenuItem jmiBajaAlumno;
+    private javax.swing.JMenuItem jmiBajaMateria;
+    private javax.swing.JMenuItem jmiConsultarAlumno;
+    private javax.swing.JMenuItem jmiConsultarMateria;
+    private javax.swing.JMenuItem jmiInformeAlumno;
+    private javax.swing.JMenuItem jmiInformeMateria;
+    private javax.swing.JMenuItem jmiMateria;
+    private javax.swing.JMenuItem jmiModificarAlumno;
+    private javax.swing.JMenuItem jmiModificarMateria;
+    private javax.swing.JMenuItem jmiSalir;
     // End of variables declaration//GEN-END:variables
 }
