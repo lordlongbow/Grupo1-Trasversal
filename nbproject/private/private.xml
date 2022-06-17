@@ -3,10 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/POSITIVO%20BGH/Documents/NetBeansProjects/Grupo1-trasversal/src/vistas/Principal_escritorio.java</file>
-            <file>file:/C:/Users/POSITIVO%20BGH/Documents/NetBeansProjects/Grupo1-trasversal/src/Modelos/Inscripcion.java</file>
-            <file>file:/C:/Users/POSITIVO%20BGH/Documents/NetBeansProjects/Grupo1-trasversal/src/Modelos/Alumno.java</file>
-            <file>file:/C:/Users/POSITIVO%20BGH/Documents/NetBeansProjects/Grupo1-trasversal/src/Modelos/Materia.java</file>
+            <file>file:/C:/Users/brand/Documents/GitHub/Grupo1-Trasversal/src/grupo1/trasversal/vistas/Escritorio.java</file>
+            <file>file:/C:/Users/brand/Documents/GitHub/Grupo1-Trasversal/src/grupo1/trasversal/vistas/InscripcionAlumno.java</file>
+            <file>file:/C:/Users/brand/Documents/GitHub/Grupo1-Trasversal/src/grupo1/trasversal/vistas/InscripcionMateria.java</file>
         </group>
     </open-files>
 </project-private>
