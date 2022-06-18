@@ -19,12 +19,11 @@ public class Grupo1Trasversal {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
+
         Conexion conexion = new Conexion();
-        
-       Connection con=conexion.getConexion();
-        
-        
+
+        Connection con = conexion.getConexion();
+
     }
-    
+
 }

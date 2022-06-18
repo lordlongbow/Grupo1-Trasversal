@@ -12,14 +12,15 @@ import java.time.LocalDate;
  * @author POSITIVO BGH
  */
 public class Alumno {
+
     private int idAlumno;
-     private String nombre;
-     private String apellido;
-     private LocalDate FechNac;
-     private long dni;
-     private boolean activo;
-     
-     //------------CONSTRUCTORES--------------
+    private String nombre;
+    private String apellido;
+    private LocalDate FechNac;
+    private long dni;
+    private boolean activo;
+
+    //------------CONSTRUCTORES--------------
 //constructor +ID
     public Alumno(int idAlumno, String nombre, String apellido, LocalDate FechNac, long dni, boolean activo) {
         this.idAlumno = idAlumno;
@@ -30,6 +31,7 @@ public class Alumno {
         this.activo = activo;
     }
 //constructor - ID
+
     public Alumno(String nombre, String apellido, LocalDate FechNac, long dni, boolean activo) {
         this.nombre = nombre;
         this.apellido = apellido;
@@ -38,9 +40,11 @@ public class Alumno {
         this.activo = activo;
     }
 //constructor vacio
+
     public Alumno() {
     }
 // Getter and Setters
+
     public int getIdAlumno() {
         return idAlumno;
     }
@@ -89,11 +93,13 @@ public class Alumno {
         this.activo = activo;
     }
 //TOSTRING
+
     @Override
     public String toString() {
         return "Alumno{" + "idAlumno=" + idAlumno + ", nombre=" + nombre + ", apellido=" + apellido + ", FechNac=" + FechNac + ", dni=" + dni + ", activo=" + activo + '}';
     }
 // HASHCODE
+
     @Override
     public int hashCode() {
         int hash = 3;
@@ -101,6 +107,7 @@ public class Alumno {
         return hash;
     }
 //EQUALS
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

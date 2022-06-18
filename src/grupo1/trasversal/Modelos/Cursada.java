@@ -10,6 +10,7 @@ package grupo1.trasversal.Modelos;
  * @author POSITIVO BGH
  */
 public class Cursada {
+
     private int id;
     private Materia materia;
     private Alumno alumno;
@@ -63,11 +64,13 @@ public class Cursada {
         this.nota = nota;
     }
 //TOSTRING
+
     @Override
     public String toString() {
         return "Cursada{" + "id=" + id + ", materia=" + materia + ", alumno=" + alumno + ", nota=" + nota + '}';
     }
 //HASHCODE
+
     @Override
     public int hashCode() {
         int hash = 3;
@@ -75,6 +78,7 @@ public class Cursada {
         return hash;
     }
 //EQUALS
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -92,6 +96,5 @@ public class Cursada {
         }
         return true;
     }
-    
-    
+
 }

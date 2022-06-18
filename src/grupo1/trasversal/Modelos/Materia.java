@@ -12,12 +12,12 @@ import java.util.Objects;
  * @author POSITIVO BGH
  */
 public class Materia {
+
     private int idMateria;
     private String nombre;
     private int anio;
     private boolean activo;
 
-    
     //COSNTRUCTOR CON ID
     public Materia(int idMateria, String nombre, int anio, boolean activo) {
         this.idMateria = idMateria;
@@ -25,16 +25,19 @@ public class Materia {
         this.anio = anio;
         this.activo = activo;
     }
-   //COSNTRUCTOR SIN ID
+    //COSNTRUCTOR SIN ID
+
     public Materia(String nombre, int anio, boolean activo) {
         this.nombre = nombre;
         this.anio = anio;
         this.activo = activo;
     }
-   //COSNTRUCTOR VACIO 
+    //COSNTRUCTOR VACIO 
+
     public Materia() {
     }
 //GETTER AND SETTER
+
     public int getIdMateria() {
         return idMateria;
     }
@@ -67,6 +70,7 @@ public class Materia {
         this.activo = activo;
     }
 //HASHCODE
+
     @Override
     public int hashCode() {
         int hash = 3;
@@ -75,6 +79,7 @@ public class Materia {
         return hash;
     }
 //EQUALS
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -101,7 +106,5 @@ public class Materia {
     public String toString() {
         return "Materia{" + "idMateria=" + idMateria + ", nombre=" + nombre + ", anio=" + anio + ", activo=" + activo + '}';
     }
-    
-    
-    
+
 }

@@ -174,34 +174,32 @@ public class Escritorio extends javax.swing.JFrame {
     }//GEN-LAST:event_jmiModificarMateriaActionPerformed
 
     private void jmiSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiSalirActionPerformed
-    dispose();
+        dispose();
     }//GEN-LAST:event_jmiSalirActionPerformed
 
     private void jmiAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAlumnoActionPerformed
-         jDesktopPane1.removeAll();
+        jDesktopPane1.removeAll();
         InscripcionAlumno ia = new InscripcionAlumno();
         ia.setVisible(true);
         jDesktopPane1.add(ia);
         jDesktopPane1.moveToFront(ia);
         jDesktopPane1.repaint();
 
-
         // TODO add your handling code here:
     }//GEN-LAST:event_jmiAlumnoActionPerformed
 
     private void jMenuBar1CaretPositionChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_jMenuBar1CaretPositionChanged
-        
+
     }//GEN-LAST:event_jMenuBar1CaretPositionChanged
 
     private void jmiMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiMateriaActionPerformed
 
-         jDesktopPane1.removeAll();
+        jDesktopPane1.removeAll();
         InscripcionMateria im = new InscripcionMateria();
         im.setVisible(true);
         jDesktopPane1.add(im);
         jDesktopPane1.moveToFront(im);
         jDesktopPane1.repaint();
-
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jmiMateriaActionPerformed

@@ -165,23 +165,23 @@ public class InscripcionAlumno extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bSalirAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirAlumnoActionPerformed
-    dispose();        // TODO add your handling code here:
+        dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_bSalirAlumnoActionPerformed
 
     private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
-       limpiarCampos();
+        limpiarCampos();
     }//GEN-LAST:event_jbNuevoActionPerformed
 
-private void limpiarCampos(){
-    
+    private void limpiarCampos() {
+
         jtDni.setText("");
         jtApellidoAlumno.setText("");
         jtNombreAlumno.setText("");
         jlIdAlumno.setText("");
         jdFechaNacimiento.setDate(null);
-        
-}     
-        
+
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button bGuardarAlumno;
     private java.awt.Button bSalirAlumno;
@@ -200,5 +200,4 @@ private void limpiarCampos(){
     private javax.swing.JTextField jtNombreAlumno;
     // End of variables declaration//GEN-END:variables
 
-   
 }

@@ -134,19 +134,19 @@ public class InscripcionMateria extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bSalirMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirMateriaActionPerformed
-    dispose();       // TODO add your handling code here:
+        dispose();       // TODO add your handling code here:
     }//GEN-LAST:event_bSalirMateriaActionPerformed
 
     private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
-    limpiarCampos();        // TODO add your handling code here:
+        limpiarCampos();        // TODO add your handling code here:
     }//GEN-LAST:event_jbNuevoActionPerformed
 
-    private void limpiarCampos(){
-    
+    private void limpiarCampos() {
+
         jlIdMateria.setText("");
         jtAnioMateria.setText("");
         jtMateria.setText("");
-    
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
