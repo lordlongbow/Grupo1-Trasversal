@@ -1,13 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package grupo1.trasversal.vistas;
 
 /**
  *
- * @author brand
+ * @author Grupo 1
  */
 public class InscripcionMateria extends javax.swing.JInternalFrame {
 
@@ -39,6 +35,8 @@ public class InscripcionMateria extends javax.swing.JInternalFrame {
         jbNuevo = new java.awt.Button();
         jlIdMateria = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 102, 255));
+
         bGuardarMateria.setBackground(new java.awt.Color(0, 153, 153));
         bGuardarMateria.setLabel("Guardar");
 
@@ -59,10 +57,6 @@ public class InscripcionMateria extends javax.swing.JInternalFrame {
         jLabel3.setText("Nombre de la Materia");
 
         jLabel4.setText("Año que se da la Materia");
-
-        jtMateria.setText("jTextField2");
-
-        jtAnioMateria.setText("jTextField3");
 
         jbNuevo.setBackground(new java.awt.Color(0, 153, 153));
         jbNuevo.setLabel("Nuevo");
@@ -94,7 +88,7 @@ public class InscripcionMateria extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 133, Short.MAX_VALUE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(28, 28, 28)
