@@ -150,19 +150,10 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtNombreAlumno">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField2"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtApellidoAlumno">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField3"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtDni">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField4"/>
-      </Properties>
     </Component>
     <Component class="java.awt.Button" name="bGuardarAlumno">
       <Properties>
@@ -193,16 +184,13 @@
         </Property>
         <Property name="label" type="java.lang.String" value="Nuevo"/>
       </Properties>
-      <AccessibilityProperties>
-        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Nuevo"/>
-      </AccessibilityProperties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbNuevoActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jlIdAlumno">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel7"/>
+        <Property name="text" type="java.lang.String" value="ID alumno"/>
       </Properties>
     </Component>
   </SubComponents>

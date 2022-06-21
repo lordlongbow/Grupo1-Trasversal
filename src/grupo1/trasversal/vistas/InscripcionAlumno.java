@@ -56,12 +56,6 @@ public class InscripcionAlumno extends javax.swing.JInternalFrame {
 
         jLabel6.setText("N° de Alumno");
 
-        jtNombreAlumno.setText("jTextField2");
-
-        jtApellidoAlumno.setText("jTextField3");
-
-        jtDni.setText("jTextField4");
-
         bGuardarAlumno.setBackground(new java.awt.Color(0, 153, 153));
         bGuardarAlumno.setLabel("Guardar");
 
@@ -82,7 +76,7 @@ public class InscripcionAlumno extends javax.swing.JInternalFrame {
             }
         });
 
-        jlIdAlumno.setText("jLabel7");
+        jlIdAlumno.setText("ID alumno");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -154,8 +148,6 @@ public class InscripcionAlumno extends javax.swing.JInternalFrame {
                     .addComponent(bSalirAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
-
-        jbNuevo.getAccessibleContext().setAccessibleName("Nuevo");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

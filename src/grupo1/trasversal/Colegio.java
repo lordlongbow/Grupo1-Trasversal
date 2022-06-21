@@ -5,10 +5,9 @@ package grupo1.trasversal;
  *
  * @author Grupo 1
  */
-import data.AlumnoData;
-import entidades.Materia;
-import data.Conexion;
-import entidades.Alumno;
+
+import grupo1.trasversal.Data.AlumnoData;
+import grupo1.trasversal.Data.Conexion;
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.Month;
@@ -16,6 +15,8 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import javax.swing.JOptionPane;
+import grupo1.trasversal.Modelos.Alumno;
+
 
 
 public class Colegio {
