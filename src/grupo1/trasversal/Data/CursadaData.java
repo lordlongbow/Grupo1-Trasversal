@@ -89,4 +89,33 @@ public class CursadaData {
         return inscripciones;
     }
 
+    
+    
+    
+    public boolean actualizarNota(Alumno alu,Materia mat, double nota){
+        boolean cargado = false;
+    try {
+            String sql = "UPDATE cursada SET nota = ? WHERE idAlumno=? and idMateria=?;";
+           
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setDouble(1, nota);
+            ps.setInt(2, alu.getIdAlumno());
+            ps.setInt(3, mat.getIdMateria());
+            
+            if(ps.executeUpdate()!=0){
+                cargado=true;
+             }
+            
+            ps.close();
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al obtener las inscripciones: " + ex.getMessage());
+        }
+
+        return cargado;
+    
+    }
+
+    //update inscripcion SET nota = 9 WHERE idAlumno=3 and idMateria=1
+
 }
