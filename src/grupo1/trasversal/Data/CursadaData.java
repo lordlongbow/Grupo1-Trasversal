@@ -115,7 +115,111 @@ public class CursadaData {
         return cargado;
     
     }
+    
+    public boolean borrarCursada(int id){
+         boolean borrado=false;
+         String sql= "DELETE FROM cursada WHERE id='?';";
+         try {
+             
+             PreparedStatement ps= con.prepareStatement(sql);
+             ps.setInt(1, id);
+             ps.executeQuery();
+             borrado=true;
+             ps.close();
+         } catch (SQLException ex) {
+             JOptionPane.showMessageDialog(null, "Error de sintaxis ");
+         }
 
-    //update inscripcion SET nota = 9 WHERE idAlumno=3 and idMateria=1
+         return borrado;
+    }
+    
+    
+    public List<Materia> alumnoCursa(int idAlumno){
+     
+        ArrayList<Materia> materias = new ArrayList<Materia>();
+
+        try {
+            String sql = "SELECT idMateria FROM cursada WHERE idAlumno = ? ;";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, idAlumno);
+            ResultSet resultSet = ps.executeQuery();
+            Materia materia;
+            while (resultSet.next()) {
+                materia = new Materia();
+                materia.setIdMateria(resultSet.getInt("idMateria"));
+                materia.setNombre(resultSet.getString("nombre"));
+                materia.setAnio(resultSet.getInt("anio"));
+                materia.setActivo(resultSet.getBoolean("activo"));
+                materias.add(materia);
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,"Error al obtener la materia");
+        }
+
+        return materias;
+     }
+    
+    public List<Materia> alumnoNoCursa(int idAlumno){
+     
+        ArrayList<Materia> materias = new ArrayList<Materia>();
+// probar este metodo para saber si funciona el != o hay que cambiarlo por <> (Para indicar que es distinto)
+        try {
+            String sql = "SELECT idMateria FROM cursada WHERE idAlumno != ? ;";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, idAlumno);
+            ResultSet resultSet = ps.executeQuery();
+             Materia materia;
+            while (resultSet.next()) {
+                materia = new Materia();
+                materia.setIdMateria(resultSet.getInt("idMateria"));
+                materia.setNombre(resultSet.getString("nombre"));
+                materia.setAnio(resultSet.getInt("anio"));
+                materia.setActivo(resultSet.getBoolean("activo"));
+                materias.add(materia);
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,"Error al obtener la materia");
+        }
+
+        return materias;
+     }
+    
+    public List<Alumno> quienesCursan (int idMateria){
+     
+        ArrayList<Alumno> alumnos = new ArrayList<Alumno>();
+
+        try {
+            String sql = "SELECT idAlumno FROM cursada WHERE idMateria = ? ;";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, idMateria);
+            ResultSet resultSet = ps.executeQuery();
+            Alumno alumno;
+            while (resultSet.next()) {
+                alumno = new Alumno();
+                alumno.setIdAlumno(resultSet.getInt("idAlumno"));
+                alumno.setApellido(resultSet.getString("apellido"));
+                alumno.setNombre(resultSet.getString("nombre"));
+                alumno.setFechNac(resultSet.getDate("fechNac").toLocalDate());
+                alumno.setDni(resultSet.getLong("dni"));
+                alumno.setActivo(resultSet.getBoolean("activo"));
+
+                alumnos.add(alumno);
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,"Error al obtener la materia");
+        }
+
+        return alumnos;
+     }
+    /*
+    Funcionalidades que faltarían:
+Borrar una cursada (delete) _/
+Dado un alumno nos devuelva las materias en las que está inscripto _/
+Dado un alumno nos devuelva las materias en las que NO está inscripto _/
+Dada una materia nos devuelva los alumnos inscriptos en ella. _/
+    */
 
 }

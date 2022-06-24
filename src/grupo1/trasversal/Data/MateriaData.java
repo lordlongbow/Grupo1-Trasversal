@@ -100,7 +100,7 @@ public class MateriaData {
             
             while (resultSet.next()) {
                 materia = new Materia();
-                materia.setIdMateria(resultSet.getInt("idAlumno"));
+                materia.setIdMateria(resultSet.getInt("idMateria"));
                 materia.setNombre(resultSet.getString("nombre"));
                 materia.setAnio(resultSet.getInt("anio"));
                 materia.setActivo(resultSet.getBoolean("activo"));
@@ -127,7 +127,7 @@ public class MateriaData {
             
             while (resultSet.next()) {
                 materia = new Materia();
-                materia.setIdMateria(resultSet.getInt("idAlumno"));
+                materia.setIdMateria(resultSet.getInt("idMateria"));
                 materia.setNombre(resultSet.getString("nombre"));
                 materia.setAnio(resultSet.getInt("anio"));
                 materia.setActivo(resultSet.getBoolean("activo"));
