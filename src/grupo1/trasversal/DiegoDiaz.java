@@ -1,5 +1,5 @@
-package grupo1.trasversal;
 
+package grupo1.trasversal;
 /**
  *
  * @author Grupo 1
@@ -18,13 +18,13 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 
-public class Colegio {
+public class DiegoDiaz {
 
     public static void main(String[] args) {
         
         Conexion conexion=new Conexion();
         MateriaData md=new MateriaData(conexion);
-        Materia l=new Materia("Lengua",1,true);
+        Materia l=new Materia("Matemticassss",2,true);
         
         if(md.agregarMateria(l)){
         
