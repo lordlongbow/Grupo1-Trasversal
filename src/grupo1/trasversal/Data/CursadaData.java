@@ -139,7 +139,7 @@ public class CursadaData {
         ArrayList<Materia> materias = new ArrayList<Materia>();
 
         try {
-            String sql = "SELECT idMateria FROM cursada WHERE idAlumno = ? ;";
+            String sql = "SELECT materia.idMateria,materia.nombre FROM cursada, materia WHERE idAlumno = ? AND cursada.idMateria = materia.idMateria;";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, idAlumno);
             ResultSet resultSet = ps.executeQuery();
@@ -163,9 +163,9 @@ public class CursadaData {
     public List<Materia> alumnoNoCursa(int idAlumno){
      
         ArrayList<Materia> materias = new ArrayList<Materia>();
-// probar este metodo para saber si funciona el != o hay que cambiarlo por <> (Para indicar que es distinto)
+// SELECT idMateria,nombre FROM cursada, materia WHERE idAlumno = ? AND cursada.idMateria = materia.idMateria;
         try {
-            String sql = "SELECT idMateria FROM cursada WHERE idAlumno != ? ;";
+            String sql = "SELECT materia.idMateria, materia.nombre FROM cursada , materia WHERE idAlumno != ? AND cursada.idMateria = materia.idMateria;";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, idAlumno);
             ResultSet resultSet = ps.executeQuery();
@@ -191,7 +191,7 @@ public class CursadaData {
         ArrayList<Alumno> alumnos = new ArrayList<Alumno>();
 
         try {
-            String sql = "SELECT idAlumno FROM cursada WHERE idMateria = ? ;";
+            String sql = "SELECT alumno.idAlumno, alumno.nombre FROM cursada,alumno WHERE idMateria = ? AND cursada.idAlumno = alumno.idAlumno;";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, idMateria);
             ResultSet resultSet = ps.executeQuery();
