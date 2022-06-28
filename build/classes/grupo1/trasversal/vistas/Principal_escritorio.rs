@@ -1,2 +1,0 @@
-vistas.Principal_escritorio
-vistas.Principal_escritorio$1
