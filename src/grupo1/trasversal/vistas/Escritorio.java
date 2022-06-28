@@ -1,5 +1,6 @@
-
 package grupo1.trasversal.vistas;
+
+import grupo1.trasversal.Data.Conexion;
 
 /**
  *
@@ -7,11 +8,15 @@ package grupo1.trasversal.vistas;
  */
 public class Escritorio extends javax.swing.JFrame {
 
+    private Conexion conexion;
+
     /**
      * Creates new form Escritorio
      */
     public Escritorio() {
         initComponents();
+        conexion = new Conexion();
+
     }
 
     /**
@@ -175,7 +180,7 @@ public class Escritorio extends javax.swing.JFrame {
 
     private void jmiAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAlumnoActionPerformed
         jDesktopPane1.removeAll();
-        InscripcionAlumno ia = new InscripcionAlumno();
+        InscripcionAlumnoAgos ia = new InscripcionAlumnoAgos(conexion);
         ia.setVisible(true);
         jDesktopPane1.add(ia);
         jDesktopPane1.moveToFront(ia);
