@@ -1,6 +1,7 @@
 
 package grupo1.trasversal.vistas;
 
+
 /**
  *
  * @author Grupo 1
@@ -13,6 +14,7 @@ public class Escritorio extends javax.swing.JFrame {
     public Escritorio() {
         initComponents();
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -29,7 +31,8 @@ public class Escritorio extends javax.swing.JFrame {
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
-        jDesktopPane1 = new javax.swing.JDesktopPane();
+        jDesktopPane2 = new javax.swing.JDesktopPane();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jmInscripcion = new javax.swing.JMenu();
         jmiAlumno = new javax.swing.JMenuItem();
@@ -61,15 +64,19 @@ public class Escritorio extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Fondo2.jpg"))); // NOI18N
+
+        jDesktopPane2.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jDesktopPane2Layout = new javax.swing.GroupLayout(jDesktopPane2);
+        jDesktopPane2.setLayout(jDesktopPane2Layout);
+        jDesktopPane2Layout.setHorizontalGroup(
+            jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1)
         );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+        jDesktopPane2Layout.setVerticalGroup(
+            jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1)
         );
 
         jMenuBar1.addInputMethodListener(new java.awt.event.InputMethodListener() {
@@ -155,11 +162,11 @@ public class Escritorio extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jDesktopPane2, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jDesktopPane2, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
@@ -174,12 +181,12 @@ public class Escritorio extends javax.swing.JFrame {
     }//GEN-LAST:event_jmiSalirActionPerformed
 
     private void jmiAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAlumnoActionPerformed
-        jDesktopPane1.removeAll();
+        jDesktopPane2.removeAll();
         InscripcionAlumno ia = new InscripcionAlumno();
         ia.setVisible(true);
-        jDesktopPane1.add(ia);
-        jDesktopPane1.moveToFront(ia);
-        jDesktopPane1.repaint();
+        jDesktopPane2.add(ia);
+        jDesktopPane2.moveToFront(ia);
+        jDesktopPane2.repaint();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jmiAlumnoActionPerformed
@@ -190,12 +197,12 @@ public class Escritorio extends javax.swing.JFrame {
 
     private void jmiMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiMateriaActionPerformed
 
-        jDesktopPane1.removeAll();
+        jDesktopPane2.removeAll();
         InscripcionMateria im = new InscripcionMateria();
         im.setVisible(true);
-        jDesktopPane1.add(im);
-        jDesktopPane1.moveToFront(im);
-        jDesktopPane1.repaint();
+        jDesktopPane2.add(im);
+        jDesktopPane2.moveToFront(im);
+        jDesktopPane2.repaint();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jmiMateriaActionPerformed
@@ -236,7 +243,8 @@ public class Escritorio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JDesktopPane jDesktopPane2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
