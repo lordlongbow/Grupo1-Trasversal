@@ -1,8 +1,14 @@
-
 package grupo1.trasversal.vistas;
 
 import grupo1.trasversal.Data.AlumnoData;
 import grupo1.trasversal.Data.Conexion;
+<<<<<<< Updated upstream
+=======
+import grupo1.trasversal.Modelos.Alumno;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import javax.swing.JOptionPane;
+>>>>>>> Stashed changes
 
 /**
  *
@@ -15,9 +21,14 @@ public class InscripcionAlumno extends javax.swing.JInternalFrame {
     /**
      * Creates new form InscripcionAlumno
      */
-    public InscripcionAlumno() {
+    private AlumnoData ad;
+
+    public InscripcionAlumno(Conexion conexion) {
         initComponents();
         limpiarCampos();
+        desactivaCampos();
+        ad = new AlumnoData(conexion);
+
     }
 
     /**
@@ -43,7 +54,11 @@ public class InscripcionAlumno extends javax.swing.JInternalFrame {
         bSalirAlumno = new java.awt.Button();
         jbNuevo = new java.awt.Button();
         jlIdAlumno = new javax.swing.JLabel();
+<<<<<<< Updated upstream
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
+=======
+        button2 = new java.awt.Button();
+>>>>>>> Stashed changes
 
         button1.setLabel("button1");
 
@@ -90,11 +105,15 @@ public class InscripcionAlumno extends javax.swing.JInternalFrame {
 
         jlIdAlumno.setText("ID alumno");
 
+        button2.setLabel("Buscar");
+        button2.setName("Buscar"); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+<<<<<<< Updated upstream
                 .addGap(64, 64, 64)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
@@ -128,6 +147,43 @@ public class InscripcionAlumno extends javax.swing.JInternalFrame {
                 .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(61, 61, 61)
                 .addComponent(bSalirAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+=======
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jlIdAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jtNombreAlumno)
+                            .addComponent(jtApellidoAlumno)
+                            .addComponent(jdFechaNacimiento, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bGuardarAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bSalirAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jbNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(36, 36, 36))))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(64, 64, 64)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(jtDni, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(55, 55, 55)
+                        .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+>>>>>>> Stashed changes
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,6 +194,7 @@ public class InscripcionAlumno extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
                     .addComponent(jlIdAlumno))
+<<<<<<< Updated upstream
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -169,6 +226,36 @@ public class InscripcionAlumno extends javax.swing.JInternalFrame {
                         .addComponent(jLabel5))
                     .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bSalirAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+=======
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(jtDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(17, 17, 17)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jbNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(bGuardarAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jtNombreAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jtApellidoAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel3))))
+                        .addGap(21, 21, 21)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jdFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel5))
+                            .addComponent(bSalirAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(34, Short.MAX_VALUE))
+>>>>>>> Stashed changes
         );
 
         pack();
@@ -183,8 +270,31 @@ public class InscripcionAlumno extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbNuevoActionPerformed
 
     private void bGuardarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGuardarAlumnoActionPerformed
+<<<<<<< Updated upstream
       
         
+=======
+        // TODO add your handling code here:
+        Alumno an = new Alumno();
+        an.setNombre(jtNombreAlumno.getText());
+        an.setApellido(jtApellidoAlumno.getText());
+        java.util.Date fecha = jdFechaNacimiento.getDate();
+
+        //convierto el date del formulario en localDate para ingresarlo en la clase alumno
+        LocalDate fechaN = fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+        an.setFechNac(fechaN);
+        an.setDni(Integer.parseInt(jtDni.getText()));
+        an.setActivo(true);
+
+        if (ad.agregarAlumno(an)) {
+            JOptionPane.showMessageDialog(null, "Alumno Agregado Exitosamente");
+            limpiarCampos();
+            desactivaCampos();
+            bGuardarAlumno.setEnabled(false);
+        }
+
+>>>>>>> Stashed changes
     }//GEN-LAST:event_bGuardarAlumnoActionPerformed
 
     private void limpiarCampos() {
@@ -197,11 +307,31 @@ public class InscripcionAlumno extends javax.swing.JInternalFrame {
 
     }
 
+    private void activaCampos() {
+        jtDni.setEnabled(true);
+        jtApellidoAlumno.setEnabled(true);
+        jtNombreAlumno.setEnabled(true);
+        jlIdAlumno.setEnabled(true);
+        jdFechaNacimiento.setEnabled(true);
+    }
+
+    private void desactivaCampos() {
+        jtDni.setEnabled(false);
+        jtApellidoAlumno.setEnabled(false);
+        jtNombreAlumno.setEnabled(false);
+        jlIdAlumno.setEnabled(false);
+        jdFechaNacimiento.setEnabled(false);
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button bGuardarAlumno;
     private java.awt.Button bSalirAlumno;
     private java.awt.Button button1;
+<<<<<<< Updated upstream
     private com.toedter.calendar.JDateChooser jDateChooser1;
+=======
+    private java.awt.Button button2;
+>>>>>>> Stashed changes
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

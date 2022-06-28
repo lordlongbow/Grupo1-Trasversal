@@ -1,6 +1,9 @@
-
 package grupo1.trasversal.vistas;
 
+<<<<<<< Updated upstream
+=======
+import grupo1.trasversal.Data.Conexion;
+>>>>>>> Stashed changes
 
 /**
  *
@@ -8,11 +11,15 @@ package grupo1.trasversal.vistas;
  */
 public class Escritorio extends javax.swing.JFrame {
 
+    private Conexion conexion;
+
     /**
      * Creates new form Escritorio
      */
     public Escritorio() {
         initComponents();
+        conexion = new Conexion();
+
     }
     
 
@@ -181,8 +188,13 @@ public class Escritorio extends javax.swing.JFrame {
     }//GEN-LAST:event_jmiSalirActionPerformed
 
     private void jmiAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAlumnoActionPerformed
+<<<<<<< Updated upstream
         jDesktopPane2.removeAll();
         InscripcionAlumno ia = new InscripcionAlumno();
+=======
+        jDesktopPane1.removeAll();
+        InscripcionAlumnoAgos ia = new InscripcionAlumnoAgos(conexion);
+>>>>>>> Stashed changes
         ia.setVisible(true);
         jDesktopPane2.add(ia);
         jDesktopPane2.moveToFront(ia);
