@@ -196,7 +196,7 @@ public class Escritorio extends javax.swing.JFrame {
     private void jmiMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiMateriaActionPerformed
 
         jDesktopPane1.removeAll();
-        InscripcionMateria im = new InscripcionMateria();
+        InscripcionMateria im = new InscripcionMateria(conexion);
         im.setVisible(true);
         jDesktopPane1.add(im);
         jDesktopPane1.moveToFront(im);

@@ -142,14 +142,14 @@ public class MateriaData {
      }
         
         
-        public boolean borrarMateria(int id){
+        public boolean borrarMateria(String nombre){
      
          boolean borrado=false;
-         String sql= "UPDATE materia SET activo = 0 WHERE idMateria = ?";
+         String sql= "UPDATE materia SET activo = 0 WHERE nombre = ?";
          try {
              
              PreparedStatement ps= con.prepareStatement(sql);
-             ps.setInt(1, id);
+             ps.setString(1, nombre);
              
              if(ps.executeUpdate()!=0){
              
