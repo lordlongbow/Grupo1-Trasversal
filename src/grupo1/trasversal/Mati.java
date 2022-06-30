@@ -28,7 +28,7 @@ public class Mati {
         
         Conexion conexion=new Conexion();
         MateriaData md=new MateriaData(conexion);
-        Materia l=new Materia("Matemticassss",2,true);
+        Materia l=new Materia("fisica",3,true);
         
         if(md.agregarMateria(l)){
         

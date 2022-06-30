@@ -97,6 +97,11 @@ public class InscripcionAlumno extends javax.swing.JInternalFrame {
 
         button2.setLabel("Buscar");
         button2.setName("Buscar"); // NOI18N
+        button2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -211,6 +216,11 @@ public class InscripcionAlumno extends javax.swing.JInternalFrame {
         }
 
     }//GEN-LAST:event_bGuardarAlumnoActionPerformed
+
+    private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_button2ActionPerformed
 
     private void limpiarCampos() {
 
