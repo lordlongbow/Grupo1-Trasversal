@@ -191,7 +191,7 @@ public class InscripcionAlumno extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_bSalirAlumnoActionPerformed
 
     private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
-        limpiarCampos();
+        activaCampos();
     }//GEN-LAST:event_jbNuevoActionPerformed
 
     private void bGuardarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGuardarAlumnoActionPerformed
