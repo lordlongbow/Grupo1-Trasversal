@@ -22,8 +22,8 @@ public class InscripcionMateria extends javax.swing.JInternalFrame {
     public InscripcionMateria(Conexion conexion) {
         initComponents();
         desactivaCampos();
-        md= new MateriaData(conexion);
-        modelo=new DefaultTableModel();
+        md = new MateriaData(conexion);
+        modelo = new DefaultTableModel();
         llenarCabeceraTabla();
         llenarComboAnio();
     }
@@ -46,7 +46,6 @@ public class InscripcionMateria extends javax.swing.JInternalFrame {
         jtMateria = new javax.swing.JTextField();
         jtAnioMateria = new javax.swing.JTextField();
         jbNuevo = new java.awt.Button();
-        jlIdMateria = new javax.swing.JLabel();
         jCheckBoxActivo = new javax.swing.JCheckBox();
         bBuscar = new java.awt.Button();
         bModificar = new java.awt.Button();
@@ -54,6 +53,8 @@ public class InscripcionMateria extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jcbAnio = new javax.swing.JComboBox<>();
+        jlIdMateria = new javax.swing.JTextField();
+        bBuscarxID = new java.awt.Button();
 
         setBackground(new java.awt.Color(255, 102, 255));
 
@@ -97,8 +98,6 @@ public class InscripcionMateria extends javax.swing.JInternalFrame {
             }
         });
 
-        jlIdMateria.setText("ID Materia");
-
         jCheckBoxActivo.setSelected(true);
         jCheckBoxActivo.setText("Activo");
 
@@ -137,6 +136,15 @@ public class InscripcionMateria extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        bBuscarxID.setBackground(new java.awt.Color(0, 153, 153));
+        bBuscarxID.setLabel("Buscar");
+        bBuscarxID.setName("jbBuscar"); // NOI18N
+        bBuscarxID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bBuscarxIDActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -155,11 +163,15 @@ public class InscripcionMateria extends javax.swing.JInternalFrame {
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jtAnioMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jlIdMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jtMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
-                        .addComponent(bBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(jlIdMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(bBuscarxID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(jtMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(39, 39, 39)
+                            .addComponent(bBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,33 +195,38 @@ public class InscripcionMateria extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jlIdMateria))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel3)
-                        .addComponent(jtMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(bBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jtAnioMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jCheckBoxActivo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jbNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bSalirMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bGuardarMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addComponent(jcbAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(jlIdMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel3)
+                                .addComponent(jtMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(bBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(jtAnioMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jCheckBoxActivo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jbNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bSalirMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bGuardarMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(28, 28, 28)
+                        .addComponent(jcbAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(bBuscarxID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -221,7 +238,7 @@ public class InscripcionMateria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_bSalirMateriaActionPerformed
 
     private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
-        activaCampos();        // TODO add your handling code here:
+        limpiarCampos();  activaCampos();        // TODO add your handling code here:
     }//GEN-LAST:event_jbNuevoActionPerformed
 
     private void bGuardarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGuardarMateriaActionPerformed
@@ -271,35 +288,50 @@ public class InscripcionMateria extends javax.swing.JInternalFrame {
         Materia materia = md.obtenerMateriaXNombre(nombre);
         if (materia != null) {
             jtAnioMateria.setText(String.valueOf(materia.getAnio()));
-            jlIdMateria.setText(String.valueOf (materia.getIdMateria()));
+            jlIdMateria.setText(String.valueOf(materia.getIdMateria()));
         }
-        
+
     }//GEN-LAST:event_bBuscarActionPerformed
-    private void llenarCabeceraTabla(){
-        ArrayList<Object> columna=new ArrayList<Object>();
+
+    private void bBuscarxIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBuscarxIDActionPerformed
+        // TODO add your handling code here:
+        int id = Integer.parseInt(jlIdMateria.getText());
+        Materia materia = md.obtenerMateriaXId(id);
+        if (materia != null) {
+            jtAnioMateria.setText(String.valueOf(materia.getAnio())+"");
+            jlIdMateria.setText(String.valueOf(materia.getIdMateria())+"");
+            jtMateria.setText(materia.getNombre()+"");
+        } else {
+            System.out.println("No se encontro esa materia");
+            limpiarCampos();
+        }
+    }//GEN-LAST:event_bBuscarxIDActionPerformed
+    private void llenarCabeceraTabla() {
+        ArrayList<Object> columna = new ArrayList<Object>();
         columna.add("ID");
         columna.add("Materia");
         columna.add("Anio");
-        for(Object it:columna){
+        for (Object it : columna) {
             modelo.addColumn(it);
         }
         jTable1.setModel(modelo);
     }
-    
-    private void llenarTabla(){
-        Materia materia=(Materia)jcbAnio.getSelectedItem();
+
+    private void llenarTabla() {
+        Materia materia = (Materia) jcbAnio.getSelectedItem();
         //if()(materia m:md.obtenerMateria(anio)){}
-        
-        
+
     }
-    private void llenarComboAnio(){
-        
+
+    private void llenarComboAnio() {
+
         jcbAnio.addItem("1");
         jcbAnio.addItem("2");
         jcbAnio.addItem("3");
         jcbAnio.addItem("4");
-        
+
     }
+
     private void limpiarCampos() {
 
         jlIdMateria.setText("");
@@ -307,15 +339,15 @@ public class InscripcionMateria extends javax.swing.JInternalFrame {
         jtMateria.setText("");
 
     }
-    
+
     private void activaCampos() {
-        jtAnioMateria.setEnabled(true);
+        jlIdMateria.setEnabled(true);
         jtMateria.setEnabled(true);
         jtAnioMateria.setEnabled(true);
     }
 
     private void desactivaCampos() {
-        jtAnioMateria.setEnabled(false);
+        jlIdMateria.setEnabled(false);
         jtMateria.setEnabled(false);
         jtAnioMateria.setEnabled(false);
     }
@@ -324,6 +356,7 @@ public class InscripcionMateria extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button bBorrar;
     private java.awt.Button bBuscar;
+    private java.awt.Button bBuscarxID;
     private java.awt.Button bGuardarMateria;
     private java.awt.Button bModificar;
     private java.awt.Button bSalirMateria;
@@ -336,7 +369,7 @@ public class InscripcionMateria extends javax.swing.JInternalFrame {
     private javax.swing.JTable jTable1;
     private java.awt.Button jbNuevo;
     private javax.swing.JComboBox<String> jcbAnio;
-    private javax.swing.JLabel jlIdMateria;
+    private javax.swing.JTextField jlIdMateria;
     private javax.swing.JTextField jtAnioMateria;
     private javax.swing.JTextField jtMateria;
     // End of variables declaration//GEN-END:variables
