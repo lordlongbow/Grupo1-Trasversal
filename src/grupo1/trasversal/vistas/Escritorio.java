@@ -180,7 +180,7 @@ public class Escritorio extends javax.swing.JFrame {
 
     private void jmiAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAlumnoActionPerformed
         jDesktopPane1.removeAll();
-        InscripcionAlumnoAgos ia = new InscripcionAlumnoAgos(conexion);
+        InscripcionAlumno ia = new InscripcionAlumno(conexion);
         ia.setVisible(true);
         jDesktopPane1.add(ia);
         jDesktopPane1.moveToFront(ia);

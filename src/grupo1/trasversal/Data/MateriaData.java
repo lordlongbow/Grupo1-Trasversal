@@ -114,6 +114,31 @@ public class MateriaData {
         return materia;
     }
 
+    public Materia obtenerMateriaXNombre(String nombre) {
+
+        Materia materia = null;
+
+        try {
+            String sql = "SELECT * FROM materia WHERE nombre = ? AND activo = 1;";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, nombre);
+            ResultSet resultSet = ps.executeQuery();
+
+            while (resultSet.next()) {
+                materia = new Materia();
+                materia.setIdMateria(resultSet.getInt("idMateria"));
+                materia.setNombre(resultSet.getString("nombre"));
+                materia.setAnio(resultSet.getInt("anio"));
+                materia.setActivo(resultSet.getBoolean("activo"));
+
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al obtener la materia");
+        }
+
+        return materia;
+    }
     public Materia obtenerMateriaXAnio(int anio) {
 
         Materia materia = null;

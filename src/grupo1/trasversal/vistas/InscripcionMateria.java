@@ -267,6 +267,12 @@ public class InscripcionMateria extends javax.swing.JInternalFrame {
 
     private void bBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBuscarActionPerformed
         // TODO add your handling code here:
+        String nombre = jtMateria.getText();
+        Materia materia = md.obtenerMateriaXNombre(nombre);
+        if (materia != null) {
+            jtAnioMateria.setText(String.valueOf(materia.getAnio()));
+            jlIdMateria.setText(String.valueOf (materia.getIdMateria()));
+        }
         
     }//GEN-LAST:event_bBuscarActionPerformed
     private void llenarCabeceraTabla(){
