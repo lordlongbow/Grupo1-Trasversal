@@ -70,12 +70,16 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="jLabel4" min="-2" pref="117" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                              <Component id="jtDni" min="-2" pref="77" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="jLabel4" min="-2" pref="117" max="-2" attributes="0"/>
                           <Component id="jLabel6" alignment="0" min="-2" pref="117" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jtDni" min="-2" pref="77" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jlIdAlumno" min="-2" pref="30" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -84,7 +88,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="77" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
@@ -105,26 +109,18 @@
                       <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="jlIdAlumno" min="-2" pref="84" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jtNombreAlumno" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jtApellidoAlumno" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jdFechaNacimiento" pref="120" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="30" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="bGuardarAlumno" min="-2" pref="70" max="-2" attributes="0"/>
-                          <Component id="bSalirAlumno" min="-2" pref="70" max="-2" attributes="0"/>
-                          <Component id="jbNuevo" min="-2" pref="70" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                  </Group>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="jtNombreAlumno" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jtApellidoAlumno" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jdFechaNacimiento" pref="120" max="32767" attributes="0"/>
               </Group>
+              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="bGuardarAlumno" min="-2" pref="70" max="-2" attributes="0"/>
+                  <Component id="bSalirAlumno" min="-2" pref="70" max="-2" attributes="0"/>
+                  <Component id="jbNuevo" min="-2" pref="70" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -135,11 +131,9 @@
               <Component id="jLabel1" min="-2" pref="31" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jlIdAlumno" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                   <Component id="btBuscarXId" min="-2" max="-2" attributes="0"/>
+                  <Component id="jlIdAlumno" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -178,7 +172,7 @@
                   </Group>
                   <Component id="btBuscarXDni" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="26" max="32767" attributes="0"/>
+              <EmptySpace pref="22" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="jCheckBoxActivo" min="-2" max="-2" attributes="0"/>
                   <Component id="jActivo" min="-2" max="-2" attributes="0"/>
@@ -265,11 +259,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbNuevoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jlIdAlumno">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="ID alumno"/>
-      </Properties>
-    </Component>
     <Component class="java.awt.Button" name="btBuscarXDni">
       <Properties>
         <Property name="label" type="java.lang.String" value="Buscar"/>
@@ -295,6 +284,8 @@
         <Property name="text" type="java.lang.String" value="Activo"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jlIdAlumno">
     </Component>
   </SubComponents>
 </Form>
