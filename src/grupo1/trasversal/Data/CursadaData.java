@@ -165,7 +165,7 @@ public class CursadaData {
         ArrayList<Materia> materias = new ArrayList<Materia>();
 // SELECT idMateria,nombre FROM cursada, materia WHERE idAlumno = ? AND cursada.idMateria = materia.idMateria;
         try {
-            String sql = "SELECT materia.idMateria, materia.nombre FROM cursada , materia WHERE idAlumno != ? AND cursada.idMateria = materia.idMateria;";
+            String sql = "Select * from materia where idMateria not in (select idMateria from cursada where idAlumno =?) AND activo = 1;";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, idAlumno);
             ResultSet resultSet = ps.executeQuery();
@@ -191,7 +191,7 @@ public class CursadaData {
         ArrayList<Alumno> alumnos = new ArrayList<Alumno>();
 
         try {
-            String sql = "SELECT alumno.idAlumno, alumno.nombre FROM cursada,alumno WHERE idMateria = ? AND cursada.idAlumno = alumno.idAlumno;";
+            String sql = "SELECT alumno.idAlumno, alumno.nombre, alumno.apellido, alumno.fechNac, alumno.dni, alumno.activo FROM cursada,alumno WHERE idMateria = ? AND cursada.idAlumno = alumno.idAlumno AND alumno.activo=1; ";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, idMateria);
             ResultSet resultSet = ps.executeQuery();
