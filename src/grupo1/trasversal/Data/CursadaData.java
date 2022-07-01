@@ -33,7 +33,7 @@ public class CursadaData {
     public boolean guardarInscripcion(Cursada inscripcion) {
         boolean insc = false;
         try {
-            String sql = "INSERT INTO inscripcion (idAlumno, idMateria, nota) VALUES ( ? , ? , ? );";
+            String sql = "INSERT INTO cursada (idAlumno, idMateria, nota) VALUES ( ? , ? , ? );";
 
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, inscripcion.getAlumno().getIdAlumno());
@@ -61,7 +61,7 @@ public class CursadaData {
     public List<Cursada> obtenerInscripciones() {
         ArrayList<Cursada> inscripciones = new ArrayList();
         try {
-            String sql = "SELECT * FROM inscripcion;";
+            String sql = "SELECT * FROM cursada;";
 
             PreparedStatement ps = con.prepareStatement(sql);
 

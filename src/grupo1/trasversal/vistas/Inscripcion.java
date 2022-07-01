@@ -37,9 +37,7 @@ public class Inscripcion extends javax.swing.JInternalFrame {
         cargaAlumnos();
         modelo = new DefaultTableModel();
         armoTabla();
-
-        
-
+       
         listaInscripcion = (ArrayList) cursadaData.obtenerInscripciones();
 
         materiaData = new MateriaData(conexion);
@@ -117,7 +115,7 @@ public class Inscripcion extends javax.swing.JInternalFrame {
             }
         });
         for (Alumno aux : listaAlumnos) {
-            jComboBoxAlumnos.addItem(toString(aux));
+            jComboBoxAlumnos.addItem(aux);
         }
 
     }
@@ -352,8 +350,6 @@ public class Inscripcion extends javax.swing.JInternalFrame {
     private javax.swing.JTable tMaterias;
     // End of variables declaration//GEN-END:variables
 
-    private Alumno toString(Alumno aux) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 
 }
