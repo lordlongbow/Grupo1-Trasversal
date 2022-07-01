@@ -109,7 +109,7 @@ public class Escritorio extends javax.swing.JFrame {
         });
         jmInscripcion.add(jmiMateria);
 
-        jMiInscripcion.setText("INSCRIBIR");
+        jMiInscripcion.setText("Inscripcion");
         jMiInscripcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMiInscripcionActionPerformed(evt);
@@ -222,16 +222,16 @@ public class Escritorio extends javax.swing.JFrame {
     private void jMiInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMiInscripcionActionPerformed
         // TODO add your handling code here:
         jDesktopPane1.removeAll();
-        Inscripcion im = new Inscripcion(conexion);
-        im.setVisible(true);
-        jDesktopPane1.add(im);
-        jDesktopPane1.moveToFront(im);
+        Inscripcion ins = new Inscripcion(conexion);
+        ins.setVisible(true);
+        jDesktopPane1.add(ins);
+        jDesktopPane1.moveToFront(ins);
         jDesktopPane1.repaint();
 
     }//GEN-LAST:event_jMiInscripcionActionPerformed
 
     private void jmInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmInscripcionActionPerformed
-        // TODO add your handling code here:
+       
 
     }//GEN-LAST:event_jmInscripcionActionPerformed
 

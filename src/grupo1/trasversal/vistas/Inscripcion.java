@@ -31,14 +31,14 @@ public class Inscripcion extends javax.swing.JInternalFrame {
   
     public Inscripcion(Conexion conexion) {
         initComponents();
-
+        cursadaData = new CursadaData(conexion);
         alumnoData = new AlumnoData(conexion);
         listaAlumnos = (ArrayList<Alumno>) alumnoData.obtenerAlumnos();
         cargaAlumnos();
         modelo = new DefaultTableModel();
         armoTabla();
 
-        cursadaData = new CursadaData(conexion);
+        
 
         listaInscripcion = (ArrayList) cursadaData.obtenerInscripciones();
 
@@ -46,6 +46,7 @@ public class Inscripcion extends javax.swing.JInternalFrame {
         listaMaterias = (ArrayList) materiaData.obtenerMaterias();
 
         listaAlumnos = (ArrayList) alumnoData.obtenerAlumnos();
+        
 
     }
 
