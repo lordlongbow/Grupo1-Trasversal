@@ -133,7 +133,7 @@ public class Inscripcion extends javax.swing.JInternalFrame {
         jRadioButtonInscritas = new javax.swing.JRadioButton();
         jRadioButtonNoInscriptas = new javax.swing.JRadioButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tMaterias = new javax.swing.JTable<>();
+        tMaterias = new javax.swing.JTable();
         btInscribir = new java.awt.Button();
         btAnular = new java.awt.Button();
         btSalir = new java.awt.Button();
@@ -157,8 +157,6 @@ public class Inscripcion extends javax.swing.JInternalFrame {
 
         jLabel2.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel2.setText("Nombre del Alumno/a  ");
-
-        jComboBoxAlumnos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel3.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel3.setText("Listado De Materias");
@@ -350,7 +348,7 @@ public class Inscripcion extends javax.swing.JInternalFrame {
     private javax.swing.JRadioButton jRadioButtonInscritas;
     private javax.swing.JRadioButton jRadioButtonNoInscriptas;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable<Materia> tMaterias;
+    private javax.swing.JTable tMaterias;
     // End of variables declaration//GEN-END:variables
 
     private Alumno toString(Alumno aux) {
