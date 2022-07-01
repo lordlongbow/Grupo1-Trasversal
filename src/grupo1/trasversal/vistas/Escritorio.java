@@ -39,6 +39,7 @@ public class Escritorio extends javax.swing.JFrame {
         jmInscripcion = new javax.swing.JMenu();
         jmiAlumno = new javax.swing.JMenuItem();
         jmiMateria = new javax.swing.JMenuItem();
+        jMiInscripcion = new javax.swing.JMenuItem();
         jmiSalir = new javax.swing.JMenuItem();
         jmAlumno = new javax.swing.JMenu();
         jmiModificarAlumno = new javax.swing.JMenuItem();
@@ -86,6 +87,11 @@ public class Escritorio extends javax.swing.JFrame {
         });
 
         jmInscripcion.setText("Inscripcion");
+        jmInscripcion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmInscripcionActionPerformed(evt);
+            }
+        });
 
         jmiAlumno.setText("Alumno");
         jmiAlumno.addActionListener(new java.awt.event.ActionListener() {
@@ -102,6 +108,14 @@ public class Escritorio extends javax.swing.JFrame {
             }
         });
         jmInscripcion.add(jmiMateria);
+
+        jMiInscripcion.setText("INSCRIBIR");
+        jMiInscripcion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMiInscripcionActionPerformed(evt);
+            }
+        });
+        jmInscripcion.add(jMiInscripcion);
 
         jmiSalir.setText("Salir");
         jmiSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -205,6 +219,22 @@ public class Escritorio extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jmiMateriaActionPerformed
 
+    private void jMiInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMiInscripcionActionPerformed
+        // TODO add your handling code here:
+        jDesktopPane1.removeAll();
+        Inscripcion im = new Inscripcion(conexion);
+        im.setVisible(true);
+        jDesktopPane1.add(im);
+        jDesktopPane1.moveToFront(im);
+        jDesktopPane1.repaint();
+
+    }//GEN-LAST:event_jMiInscripcionActionPerformed
+
+    private void jmInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmInscripcionActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jmInscripcionActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -249,6 +279,7 @@ public class Escritorio extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMiInscripcion;
     private javax.swing.JMenu jmAlumno;
     private javax.swing.JMenu jmInforme;
     private javax.swing.JMenu jmInscripcion;

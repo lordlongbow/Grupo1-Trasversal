@@ -116,23 +116,43 @@ public class CursadaData {
     
     }
     
-    public boolean borrarCursada(int id){
-         boolean borrado=false;
-         String sql= "DELETE FROM cursada WHERE id='?';";
-         try {
-             
-             PreparedStatement ps= con.prepareStatement(sql);
-             ps.setInt(1, id);
-             ps.executeQuery();
-             borrado=true;
-             ps.close();
-         } catch (SQLException ex) {
-             JOptionPane.showMessageDialog(null, "Error de sintaxis ");
-         }
-
-         return borrado;
-    }
+//    public boolean borrarCursada(int id){
+//         boolean borrado=false;
+//         String sql= "DELETE FROM cursada WHERE id='?';";
+//         try {
+//             
+//             PreparedStatement ps= con.prepareStatement(sql);
+//             ps.setInt(1, id);
+//             ps.executeQuery();
+//             borrado=true;
+//             ps.close();
+//         } catch (SQLException ex) {
+//             JOptionPane.showMessageDialog(null, "Error de sintaxis ");
+//         }
+//
+//         return borrado;
+//    }
+//    
     
+     public boolean borrarCursada(int idAlumno, int idMateria) {
+        boolean result = true;
+        String sql = "DELETE FROM `cursada` WHERE cursada.idAlumno =" + idAlumno+" and idMateria= "+idMateria;
+        try {
+            PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            int rs = ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Eliminacion exitosa");
+            if (rs == 0) {
+                result = false;
+            }
+
+            ps.close();
+        } catch (SQLException ex) {
+            result = false;
+            JOptionPane.showMessageDialog(null, "Error de sintaxis\n" + ex);
+        }
+
+        return result;
+    }
     
     public List<Materia> alumnoCursa(int idAlumno){
      
