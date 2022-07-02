@@ -154,32 +154,49 @@ public class CursadaData {
         return result;
     }
     
-    public List<Materia> alumnoCursa(int idAlumno){
-     
-        ArrayList<Materia> materias = new ArrayList<Materia>();
-
+//    public List<Materia> alumnoCursa(int idAlumno){
+//     
+//        ArrayList<Materia> materias = new ArrayList<Materia>();
+//
+//        try {
+//            String sql = "SELECT materia.idMateria,materia.nombre FROM cursada, materia WHERE idAlumno = ? AND cursada.idMateria = materia.idMateria;";
+//            PreparedStatement ps = con.prepareStatement(sql);
+//            ps.setInt(1, idAlumno);
+//            ResultSet resultSet = ps.executeQuery();
+//            Materia materia;
+//            while (resultSet.next()) {
+//                materia = new Materia();
+//                materia.setIdMateria(resultSet.getInt("idMateria"));
+//                materia.setNombre(resultSet.getString("nombre"));
+//                materia.setAnio(resultSet.getInt("anio"));
+//                materia.setActivo(resultSet.getBoolean("activo"));
+//                materias.add(materia);
+//            }
+//            ps.close();
+//        } catch (SQLException ex) {
+//            JOptionPane.showMessageDialog(null,"Error al obtener la materia");
+//        }
+//
+//        return materias;
+//     }
+    
+    public ArrayList<Materia> materiasInscriptoAlumno(Alumno alumno) {
+        ArrayList<Materia> materias = new ArrayList();
         try {
-            String sql = "SELECT materia.idMateria,materia.nombre FROM cursada, materia WHERE idAlumno = ? AND cursada.idMateria = materia.idMateria;";
+            String sql = "SELECT * FROM cursada WHERE idAlumno=?";
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, idAlumno);
-            ResultSet resultSet = ps.executeQuery();
-            Materia materia;
-            while (resultSet.next()) {
-                materia = new Materia();
-                materia.setIdMateria(resultSet.getInt("idMateria"));
-                materia.setNombre(resultSet.getString("nombre"));
-                materia.setAnio(resultSet.getInt("anio"));
-                materia.setActivo(resultSet.getBoolean("activo"));
-                materias.add(materia);
+            ps.setInt(1, alumno.getIdAlumno());
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                materias.add(materiaData.obtenerMateriaXId(rs.getInt("idMateria")));
             }
             ps.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null,"Error al obtener la materia");
+            JOptionPane.showMessageDialog(null, "Error al obtener inscripciones\n" + ex, "Error Obtener inscripciones", JOptionPane.ERROR_MESSAGE);
         }
-
         return materias;
-     }
-    
+    }
     public List<Materia> alumnoNoCursa(int idAlumno){
      
         ArrayList<Materia> materias = new ArrayList<Materia>();

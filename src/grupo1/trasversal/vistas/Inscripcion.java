@@ -72,7 +72,7 @@ public class Inscripcion extends javax.swing.JInternalFrame {
 
         Alumno seleccionado = (Alumno) jComboBoxAlumnos.getSelectedItem();
 
-        ArrayList<Materia> lista = (ArrayList) cursadaData.alumnoCursa(seleccionado.getIdAlumno());
+        ArrayList<Materia> lista = (ArrayList) cursadaData.materiasInscriptoAlumno(seleccionado);
 
         for (Materia m : lista) {
 
