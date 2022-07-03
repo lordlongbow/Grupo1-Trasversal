@@ -224,7 +224,7 @@ public class Inscripcion extends javax.swing.JInternalFrame {
 
         jLabel4.setText("Cargar Nota Al Alumno");
 
-        jtNota.setText("Cargar Nota");
+        jtNota.setToolTipText("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

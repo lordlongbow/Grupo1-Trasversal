@@ -79,7 +79,7 @@ public class InscripcionAlumno extends javax.swing.JInternalFrame {
 
         jLabel1.setFont(new java.awt.Font("Script MT Bold", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Inscripcion de Alumno");
+        jLabel1.setText("Inscripción de Alumno");
 
         jLabel2.setText("Nombre");
 

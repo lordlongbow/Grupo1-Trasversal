@@ -194,7 +194,7 @@
           <Font name="Script MT Bold" size="24" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Inscripcion de Alumno"/>
+        <Property name="text" type="java.lang.String" value="Inscripci&#xf3;n de Alumno"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">

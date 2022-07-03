@@ -198,8 +198,8 @@ public class CursadaData {
         return materias;
     }
     
-    public double obtenerNota(Alumno alu,Materia mat){
-        int nota=0;
+    public double obtenerNota(Alumno alu, Materia mat){
+        double nota=0;
     try {
             String sql = "SELECT nota FROM cursada WHERE idAlumno=? and idMateria=?;";
            
@@ -208,7 +208,7 @@ public class CursadaData {
             ps.setInt(2, mat.getIdMateria());
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                nota=rs.getInt("nota");
+                nota=rs.getDouble("nota");
              }
             
             ps.close();
