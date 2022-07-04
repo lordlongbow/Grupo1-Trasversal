@@ -282,7 +282,7 @@ public class InscripcionAlumno extends javax.swing.JInternalFrame {
         //(int idAlumno, String nombre, String apellido, LocalDate fechNac, long dni, boolean activo) {
         Alumno alumno = new Alumno(nombre,apellido,fechNac,dni,activo);
         if(ad.agregarAlumno(alumno)){
-            jlIdAlumno.setText(alumno.getIdAlumno()+"");
+            jtIdAlumno.setText(alumno.getIdAlumno()+"");
             JOptionPane.showMessageDialog(this, "Alumno Agregado con Exito");            
             jbNuevo.setEnabled(true);
             

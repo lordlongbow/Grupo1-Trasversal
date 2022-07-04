@@ -6,6 +6,9 @@ import grupo1.trasversal.Modelos.Materia;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -14,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Grupo 1
  */
 public class InscripcionMateria extends javax.swing.JInternalFrame {
-
+    private ArrayList<Materia> mat;
     private MateriaData md;
     private DefaultTableModel modelo;
 
@@ -25,6 +28,7 @@ public class InscripcionMateria extends javax.swing.JInternalFrame {
         initComponents();
         desactivaCampos();
         cargarAnio();
+        mat = new ArrayList<Materia>();
         
         md = new MateriaData(conexion);
         modelo = new DefaultTableModel();
@@ -151,7 +155,11 @@ public class InscripcionMateria extends javax.swing.JInternalFrame {
 
         jLabel5.setText("Buscar Materias por Año");
 
-        jCanio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCanio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCanioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -263,6 +271,7 @@ public class InscripcionMateria extends javax.swing.JInternalFrame {
         materia.setActivo(true);
 
         if (md.agregarMateria(materia)) {
+            jlIdMateria.setText(materia.getIdMateria()+"");
             JOptionPane.showMessageDialog(null, "Materia Agregada Exitosamente");
             limpiarCampos();
             desactivaCampos();
@@ -302,6 +311,7 @@ public class InscripcionMateria extends javax.swing.JInternalFrame {
         String nombre = jtMateria.getText();
         Materia materia = md.obtenerMateriaXNombre(nombre);
         if (materia != null) {
+            jlIdMateria.setText(materia.getIdMateria()+"");
             jtAnioMateria.setText(String.valueOf(materia.getAnio()));
             jlIdMateria.setText(String.valueOf(materia.getIdMateria()));
         }
@@ -321,6 +331,10 @@ public class InscripcionMateria extends javax.swing.JInternalFrame {
             limpiarCampos();
         }
     }//GEN-LAST:event_bBuscarxIDActionPerformed
+
+    private void jCanioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCanioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCanioActionPerformed
     
     
     private void armarTabla(){
@@ -335,11 +349,38 @@ public class InscripcionMateria extends javax.swing.JInternalFrame {
         jTabMaterias.setModel(modelo);
     }
     
+    /*private void cargarTabla(){
+       //borraFilasTabla();
+        //Llenar filas
+
+        int seleccionado = Integer.parseInt((String) jCanio.getSelectedItem());
+       // ArrayList<Materia> lista = (ArrayList) MateriaData.obtenerMateriaXAnio(seleccionado);
+        
+        
+        for (Materia m : lista) {
+            modelo.addRow(new Object[]{m.getIdMateria(), m.getNombre(), m.getAnio(),cursadaData.obtenerNota(seleccionado, m)});
+        }
+    }*/
+    
     private void cargarAnio() {
-        jCanio.addItem("1");
+        HashMap<Integer,Integer> anio = new HashMap<Integer,Integer>();
+        anio=md.obtenerAnios();
+        
+        /*ArrayList<String> anio = new ArrayList<String>();
+        Collections.sort(, new Comparator<Materia>() {
+            @Override
+            public int compare(Materia t, Materia t1) {
+                return t.getAnio().compareTo(t1.getAnio());
+            }
+        });*/
+        for (Integer aux : anio.values()) {
+            jCanio.addItem(aux + "");
+        }
+        
+        /*jCanio.addItem("1");
         jCanio.addItem("2");
         jCanio.addItem("3");
-        jCanio.addItem("4");
+        jCanio.addItem("4");*/
     }
     
     private void limpiarCampos() {

@@ -8,7 +8,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import javax.swing.JOptionPane;
 
 /**
@@ -163,6 +166,26 @@ public class MateriaData {
         }
 
         return materia;
+    }
+    
+    public HashMap<Integer,Integer> obtenerAnios(){
+        HashMap<Integer,Integer> anios = new HashMap<Integer,Integer>();
+        Materia materia;
+        int i = -1;
+        try {
+            String sql = "SELECT anio FROM materia WHERE activo = 1;";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet resultSet = ps.executeQuery();
+
+            while (resultSet.next()) {
+                i++;
+                anios.put(i,resultSet.getInt("anio"));
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al obtener la materia");
+        }
+        return anios;
     }
 
     public boolean borrarMateriaXId(int id) {
