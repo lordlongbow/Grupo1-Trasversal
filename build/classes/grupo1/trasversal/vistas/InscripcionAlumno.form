@@ -89,10 +89,7 @@
                               <Component id="jlIdAlumno" min="-2" pref="61" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="btBuscarXId" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="btBuscarXId" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <Component id="btBuscarXDni" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -126,7 +123,9 @@
               <Component id="jbNuevo" min="-2" pref="70" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
               <Component id="bGuardarAlumno" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="70" max="32767" attributes="0"/>
+              <EmptySpace pref="36" max="32767" attributes="0"/>
+              <Component id="bBorrarAlumno" min="-2" pref="63" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               <Component id="jbActualizar" min="-2" pref="76" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
               <Component id="bSalirAlumno" min="-2" pref="70" max="-2" attributes="0"/>
@@ -184,6 +183,7 @@
                   <Component id="bGuardarAlumno" min="-2" max="-2" attributes="0"/>
                   <Component id="jbActualizar" min="-2" max="-2" attributes="0"/>
                   <Component id="bSalirAlumno" min="-2" max="-2" attributes="0"/>
+                  <Component id="bBorrarAlumno" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="104" max="32767" attributes="0"/>
           </Group>
@@ -283,6 +283,9 @@
       <Properties>
         <Property name="selected" type="boolean" value="true"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jcbActivoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jActivo">
       <Properties>
@@ -315,6 +318,18 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btBuscarXIdActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="java.awt.Button" name="bBorrarAlumno">
+      <Properties>
+        <Property name="actionCommand" type="java.lang.String" value="Borrar"/>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="99" green="99" red="0" type="rgb"/>
+        </Property>
+        <Property name="label" type="java.lang.String" value="Borrar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bBorrarAlumnoActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
