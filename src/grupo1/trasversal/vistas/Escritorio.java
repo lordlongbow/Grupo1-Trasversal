@@ -37,21 +37,13 @@ public class Escritorio extends javax.swing.JFrame {
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jmInscripcion = new javax.swing.JMenu();
-        jmiAlumno = new javax.swing.JMenuItem();
-        jmiMateria = new javax.swing.JMenuItem();
         jMiInscripcion = new javax.swing.JMenuItem();
-        jmiSalir = new javax.swing.JMenuItem();
         jmAlumno = new javax.swing.JMenu();
-        jmiModificarAlumno = new javax.swing.JMenuItem();
-        jmiBajaAlumno = new javax.swing.JMenuItem();
-        jmiConsultarAlumno = new javax.swing.JMenuItem();
+        jmiAlumno = new javax.swing.JMenuItem();
         jmMateria = new javax.swing.JMenu();
-        jmiModificarMateria = new javax.swing.JMenuItem();
-        jmiBajaMateria = new javax.swing.JMenuItem();
-        jmiConsultarMateria = new javax.swing.JMenuItem();
+        jmiMateria = new javax.swing.JMenuItem();
         jmInforme = new javax.swing.JMenu();
-        jmiInformeAlumno = new javax.swing.JMenuItem();
-        jmiInformeMateria = new javax.swing.JMenuItem();
+        jmiSalir = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -79,10 +71,10 @@ public class Escritorio extends javax.swing.JFrame {
         );
 
         jMenuBar1.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+            }
             public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
                 jMenuBar1CaretPositionChanged(evt);
-            }
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
 
@@ -93,23 +85,7 @@ public class Escritorio extends javax.swing.JFrame {
             }
         });
 
-        jmiAlumno.setText("Alumno");
-        jmiAlumno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmiAlumnoActionPerformed(evt);
-            }
-        });
-        jmInscripcion.add(jmiAlumno);
-
-        jmiMateria.setText("Materia");
-        jmiMateria.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmiMateriaActionPerformed(evt);
-            }
-        });
-        jmInscripcion.add(jmiMateria);
-
-        jMiInscripcion.setText("Inscripcion");
+        jMiInscripcion.setText("Formulario de Inscripciones y Cursadas");
         jMiInscripcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMiInscripcionActionPerformed(evt);
@@ -117,54 +93,41 @@ public class Escritorio extends javax.swing.JFrame {
         });
         jmInscripcion.add(jMiInscripcion);
 
+        jMenuBar1.add(jmInscripcion);
+
+        jmAlumno.setText("Alumno ");
+
+        jmiAlumno.setText("Formulario de Alumnos");
+        jmiAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiAlumnoActionPerformed(evt);
+            }
+        });
+        jmAlumno.add(jmiAlumno);
+
+        jMenuBar1.add(jmAlumno);
+
+        jmMateria.setText("Materia");
+
+        jmiMateria.setText("Formulario de Materias");
+        jmiMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiMateriaActionPerformed(evt);
+            }
+        });
+        jmMateria.add(jmiMateria);
+
+        jMenuBar1.add(jmMateria);
+
+        jmInforme.setText("Ajustes");
+
         jmiSalir.setText("Salir");
         jmiSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmiSalirActionPerformed(evt);
             }
         });
-        jmInscripcion.add(jmiSalir);
-
-        jMenuBar1.add(jmInscripcion);
-
-        jmAlumno.setText("Alumno ");
-
-        jmiModificarAlumno.setText("Modificar Alumno");
-        jmAlumno.add(jmiModificarAlumno);
-
-        jmiBajaAlumno.setText("Baja Alumno");
-        jmAlumno.add(jmiBajaAlumno);
-
-        jmiConsultarAlumno.setText("Consultar Alumno");
-        jmAlumno.add(jmiConsultarAlumno);
-
-        jMenuBar1.add(jmAlumno);
-
-        jmMateria.setText("Materia");
-
-        jmiModificarMateria.setText("Modificar Materia");
-        jmiModificarMateria.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmiModificarMateriaActionPerformed(evt);
-            }
-        });
-        jmMateria.add(jmiModificarMateria);
-
-        jmiBajaMateria.setText("Baja Materia");
-        jmMateria.add(jmiBajaMateria);
-
-        jmiConsultarMateria.setText("Consultar Materia");
-        jmMateria.add(jmiConsultarMateria);
-
-        jMenuBar1.add(jmMateria);
-
-        jmInforme.setText("Informes");
-
-        jmiInformeAlumno.setText("Alumnos");
-        jmInforme.add(jmiInformeAlumno);
-
-        jmiInformeMateria.setText("Materias");
-        jmInforme.add(jmiInformeMateria);
+        jmInforme.add(jmiSalir);
 
         jMenuBar1.add(jmInforme);
 
@@ -184,24 +147,9 @@ public class Escritorio extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jmiModificarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiModificarMateriaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jmiModificarMateriaActionPerformed
-
     private void jmiSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiSalirActionPerformed
         dispose();
     }//GEN-LAST:event_jmiSalirActionPerformed
-
-    private void jmiAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAlumnoActionPerformed
-        jDesktopPane1.removeAll();
-        InscripcionAlumno ia = new InscripcionAlumno(conexion);
-        ia.setVisible(true);
-        jDesktopPane1.add(ia);
-        jDesktopPane1.moveToFront(ia);
-        jDesktopPane1.repaint();
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jmiAlumnoActionPerformed
 
     private void jMenuBar1CaretPositionChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_jMenuBar1CaretPositionChanged
 
@@ -234,6 +182,17 @@ public class Escritorio extends javax.swing.JFrame {
        
 
     }//GEN-LAST:event_jmInscripcionActionPerformed
+
+    private void jmiAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAlumnoActionPerformed
+        jDesktopPane1.removeAll();
+        InscripcionAlumno ia = new InscripcionAlumno(conexion);
+        ia.setVisible(true);
+        jDesktopPane1.add(ia);
+        jDesktopPane1.moveToFront(ia);
+        jDesktopPane1.repaint();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jmiAlumnoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -285,15 +244,7 @@ public class Escritorio extends javax.swing.JFrame {
     private javax.swing.JMenu jmInscripcion;
     private javax.swing.JMenu jmMateria;
     private javax.swing.JMenuItem jmiAlumno;
-    private javax.swing.JMenuItem jmiBajaAlumno;
-    private javax.swing.JMenuItem jmiBajaMateria;
-    private javax.swing.JMenuItem jmiConsultarAlumno;
-    private javax.swing.JMenuItem jmiConsultarMateria;
-    private javax.swing.JMenuItem jmiInformeAlumno;
-    private javax.swing.JMenuItem jmiInformeMateria;
     private javax.swing.JMenuItem jmiMateria;
-    private javax.swing.JMenuItem jmiModificarAlumno;
-    private javax.swing.JMenuItem jmiModificarMateria;
     private javax.swing.JMenuItem jmiSalir;
     // End of variables declaration//GEN-END:variables
 }
