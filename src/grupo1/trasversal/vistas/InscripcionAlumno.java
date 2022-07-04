@@ -347,7 +347,6 @@ public class InscripcionAlumno extends javax.swing.JInternalFrame {
 
     private void btBuscarXIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarXIdActionPerformed
         // TODO add your handling code here:
-        jbNuevo.setEnabled(false);
         bGuardarAlumno.setEnabled(false);
         jbActualizar.setEnabled(true);
         int id = Integer.parseInt(jtIdAlumno.getText());
@@ -370,7 +369,7 @@ public class InscripcionAlumno extends javax.swing.JInternalFrame {
         jtDni.setText("");
         jtApellidoAlumno.setText("");
         jtNombreAlumno.setText("");
-        jlIdAlumno.setText("");
+        jtIdAlumno.setText("");
         jdFechaNacimiento.setDate(null);
 
     }
