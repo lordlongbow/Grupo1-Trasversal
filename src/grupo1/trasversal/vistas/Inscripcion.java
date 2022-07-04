@@ -28,7 +28,6 @@ public class Inscripcion extends javax.swing.JInternalFrame {
     private AlumnoData alumnoData;
     private DefaultTableModel modelo;
 
-  
     public Inscripcion(Conexion conexion) {
         initComponents();
         cursadaData = new CursadaData(conexion);
@@ -37,14 +36,13 @@ public class Inscripcion extends javax.swing.JInternalFrame {
         cargaAlumnos();
         modelo = new DefaultTableModel();
         armoTabla();
-       
+
         listaInscripcion = (ArrayList) cursadaData.obtenerInscripciones();
 
         materiaData = new MateriaData(conexion);
         listaMaterias = (ArrayList) materiaData.obtenerMaterias();
 
         listaAlumnos = (ArrayList) alumnoData.obtenerAlumnos();
-        
 
     }
 
@@ -72,10 +70,9 @@ public class Inscripcion extends javax.swing.JInternalFrame {
 
         Alumno seleccionado = (Alumno) jComboBoxAlumnos.getSelectedItem();
         ArrayList<Materia> lista = (ArrayList) cursadaData.materiasInscriptoAlumno(seleccionado);
-        
-        
+
         for (Materia m : lista) {
-            modelo.addRow(new Object[]{m.getIdMateria(), m.getNombre(), m.getAnio(),cursadaData.obtenerNota(seleccionado, m)});
+            modelo.addRow(new Object[]{m.getIdMateria(), m.getNombre(), m.getAnio(), cursadaData.obtenerNota(seleccionado, m)});
         }
     }
 
@@ -158,6 +155,12 @@ public class Inscripcion extends javax.swing.JInternalFrame {
 
         jLabel2.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel2.setText("Nombre del Alumno/a  ");
+
+        jComboBoxAlumnos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxAlumnosActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel3.setText("Listado De Materias");
@@ -308,7 +311,7 @@ public class Inscripcion extends javax.swing.JInternalFrame {
             int idMateria = (Integer) modelo.getValueAt(filaSeleccionada, 0);
             String nombreMateria = (String) modelo.getValueAt(filaSeleccionada, 1);
             int anio = (Integer) modelo.getValueAt(filaSeleccionada, 2);
-            Materia m = new Materia(idMateria, nombreMateria, anio, true);            
+            Materia m = new Materia(idMateria, nombreMateria, anio, true);
             double nota = 0;
 
             Cursada c = new Cursada(m, a, nota);
@@ -330,7 +333,7 @@ public class Inscripcion extends javax.swing.JInternalFrame {
             int idMateria = (Integer) modelo.getValueAt(filaSeleccionada, 0);
             cursadaData.borrarCursada(a.getIdAlumno(), idMateria);
             //borraFilasTabla();
-            
+
             cargoInscriptas();
         }
     }//GEN-LAST:event_btAnularActionPerformed
@@ -375,6 +378,15 @@ public class Inscripcion extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jBtnActualizarNotaActionPerformed
 
+    private void jComboBoxAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxAlumnosActionPerformed
+        // TODO add your handling code here:
+        borraFilasTabla();
+        jRadioButtonInscritas.setSelected(false);
+        jRadioButtonNoInscriptas.setSelected(false);
+
+
+    }//GEN-LAST:event_jComboBoxAlumnosActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button btAnular;
@@ -393,7 +405,5 @@ public class Inscripcion extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jtNota;
     private javax.swing.JTable tMaterias;
     // End of variables declaration//GEN-END:variables
-
-   
 
 }

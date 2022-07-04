@@ -66,6 +66,7 @@ public class InscripcionAlumno extends javax.swing.JInternalFrame {
         jbActualizar = new java.awt.Button();
         jtIdAlumno = new javax.swing.JTextField();
         btBuscarXId = new java.awt.Button();
+        bBorrarAlumno = new java.awt.Button();
 
         button1.setLabel("button1");
 
@@ -128,6 +129,11 @@ public class InscripcionAlumno extends javax.swing.JInternalFrame {
         });
 
         jcbActivo.setSelected(true);
+        jcbActivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbActivoActionPerformed(evt);
+            }
+        });
 
         jActivo.setText("Activo");
         jActivo.setToolTipText("");
@@ -146,6 +152,15 @@ public class InscripcionAlumno extends javax.swing.JInternalFrame {
         btBuscarXId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btBuscarXIdActionPerformed(evt);
+            }
+        });
+
+        bBorrarAlumno.setActionCommand("Borrar");
+        bBorrarAlumno.setBackground(new java.awt.Color(0, 153, 153));
+        bBorrarAlumno.setLabel("Borrar");
+        bBorrarAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bBorrarAlumnoActionPerformed(evt);
             }
         });
 
@@ -178,9 +193,7 @@ public class InscripcionAlumno extends javax.swing.JInternalFrame {
                                 .addComponent(jlIdAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(31, 31, 31)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(btBuscarXId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(btBuscarXId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(btBuscarXDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, Short.MAX_VALUE))))))
@@ -202,7 +215,9 @@ public class InscripcionAlumno extends javax.swing.JInternalFrame {
                 .addComponent(jbNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(66, 66, 66)
                 .addComponent(bGuardarAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addComponent(bBorrarAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
                 .addComponent(jbActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57)
                 .addComponent(bSalirAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -248,7 +263,8 @@ public class InscripcionAlumno extends javax.swing.JInternalFrame {
                     .addComponent(jbNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bGuardarAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bSalirAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bSalirAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bBorrarAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(104, Short.MAX_VALUE))
         );
 
@@ -260,32 +276,32 @@ public class InscripcionAlumno extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_bSalirAlumnoActionPerformed
 
     private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
-        limpiarCampos(); activaCampos();
-         bGuardarAlumno.setEnabled(true);
+        limpiarCampos();
+        activaCampos();
+        bGuardarAlumno.setEnabled(true);
         btBuscarXDni.setEnabled(true);
         btBuscarXId.setEnabled(true);
     }//GEN-LAST:event_jbNuevoActionPerformed
 
     private void bGuardarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGuardarAlumnoActionPerformed
-        jbActualizar.setEnabled(false);        
-         String nombre = jtNombreAlumno.getText();
-        String apellido = jtApellidoAlumno.getText();        
+        jbActualizar.setEnabled(false);
+        String nombre = jtNombreAlumno.getText();
+        String apellido = jtApellidoAlumno.getText();
         Long dni = Long.parseLong(jtDni.getText());
         Boolean activo = jcbActivo.isSelected();
-        
+
         //Obtenemos la fecja del jcalendar y la pasamos a LocalDate
-        SimpleDateFormat formatoFecha = new SimpleDateFormat("dd-MM-yyyy");        
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("dd-MM-yyyy");
         String fecha = formatoFecha.format(jdFechaNacimiento.getDate());
         LocalDate fechNac = LocalDate.parse(fecha, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-        
-        
+
         //(int idAlumno, String nombre, String apellido, LocalDate fechNac, long dni, boolean activo) {
-        Alumno alumno = new Alumno(nombre,apellido,fechNac,dni,activo);
-        if(ad.agregarAlumno(alumno)){
-            jlIdAlumno.setText(alumno.getIdAlumno()+"");
-            JOptionPane.showMessageDialog(this, "Alumno Agregado con Exito");            
+        Alumno alumno = new Alumno(nombre, apellido, fechNac, dni, activo);
+        if (ad.agregarAlumno(alumno)) {
+            jlIdAlumno.setText(alumno.getIdAlumno() + "");
+            JOptionPane.showMessageDialog(this, "Alumno Agregado con Exito");
             jbNuevo.setEnabled(true);
-            
+
         }
 
     }//GEN-LAST:event_bGuardarAlumnoActionPerformed
@@ -304,43 +320,43 @@ public class InscripcionAlumno extends javax.swing.JInternalFrame {
             jdFechaNacimiento.setDate(java.sql.Date.valueOf(alumno.getFechNac()));
             jcbActivo.setSelected(alumno.isActivo());
 
-        }else{
+        } else {
             JOptionPane.showMessageDialog(this, "No hay alumno con ese DNI");
         }
-        
+
 
     }//GEN-LAST:event_btBuscarXDniActionPerformed
 
     private void jbActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbActualizarActionPerformed
-         int id=-1;
-          bGuardarAlumno.setEnabled(false);
-       /* try{
+        int id = -1;
+        bGuardarAlumno.setEnabled(false);
+        /* try{
             id=Integer.parseInt(jtDni.getText());
         }catch(Exception ex){
         
              JOptionPane.showMessageDialog(this, "Usted debe ingresar un numero");
              jtDni.requestFocus();
         }*/
-        id=Integer.parseInt(jtIdAlumno.getText());
-        String nom=jtNombreAlumno.getText();    
-        String ape=jtApellidoAlumno.getText();
-        long dni=-1;
-        try{
-             dni=Long.parseLong(jtDni.getText());
-        }catch(Exception e){
-        
-             JOptionPane.showMessageDialog(this, "Usted debe ingresar un numero");
-             jtDni.requestFocus();
-            
+        id = Integer.parseInt(jtIdAlumno.getText());
+        String nom = jtNombreAlumno.getText();
+        String ape = jtApellidoAlumno.getText();
+        long dni = -1;
+        try {
+            dni = Long.parseLong(jtDni.getText());
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(this, "Usted debe ingresar un numero");
+            jtDni.requestFocus();
+
         }
-        SimpleDateFormat formatoFecha = new SimpleDateFormat("dd-MM-yyyy");        
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("dd-MM-yyyy");
         String fecha = formatoFecha.format(jdFechaNacimiento.getDate());
         LocalDate fechNac = LocalDate.parse(fecha, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-   
-        boolean estado=jcbActivo.isSelected();
-        Alumno alumno=new Alumno(id,nom,ape,fechNac,dni,estado);
-        if(ad.modificarAlumno(alumno)){
-        
+
+        boolean estado = jcbActivo.isSelected();
+        Alumno alumno = new Alumno(id, nom, ape, fechNac, dni, estado);
+        if (ad.modificarAlumno(alumno)) {
+
             JOptionPane.showMessageDialog(this, "Alumno modificado con Exito");
         }
     }//GEN-LAST:event_jbActualizarActionPerformed
@@ -359,10 +375,39 @@ public class InscripcionAlumno extends javax.swing.JInternalFrame {
             jdFechaNacimiento.setDate(java.sql.Date.valueOf(alumno.getFechNac()));
             jcbActivo.setSelected(alumno.isActivo());
 
-        }else{
+        } else {
             JOptionPane.showMessageDialog(this, "No hay un alumno activo asociado a ese legajo");
         }
     }//GEN-LAST:event_btBuscarXIdActionPerformed
+
+    private void bBorrarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBorrarAlumnoActionPerformed
+        // TODO add your handling code here:     
+        jbActualizar.setEnabled(false);
+        int id= Integer.parseInt(jtIdAlumno.getText());
+        String nombre = jtNombreAlumno.getText();
+        String apellido = jtApellidoAlumno.getText();
+        Long dni = Long.parseLong(jtDni.getText());
+        Boolean activo = jcbActivo.isSelected();
+
+        //Obtenemos la fecja del jcalendar y la pasamos a LocalDate
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("dd-MM-yyyy");
+        String fecha = formatoFecha.format(jdFechaNacimiento.getDate());
+        LocalDate fechNac = LocalDate.parse(fecha, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+
+        //(int idAlumno, String nombre, String apellido, LocalDate fechNac, long dni, boolean activo) {
+        Alumno alumno = new Alumno(id,nombre, apellido, fechNac, dni, activo);
+        if (ad.borrarAlumno(alumno.getIdAlumno())) {
+            jlIdAlumno.setText(alumno.getIdAlumno() + "");
+            JOptionPane.showMessageDialog(this, "Alumno Borrado con Exito");
+            jbNuevo.setEnabled(true);
+
+        }
+
+    }//GEN-LAST:event_bBorrarAlumnoActionPerformed
+
+    private void jcbActivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbActivoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcbActivoActionPerformed
 
     private void limpiarCampos() {
 
@@ -391,6 +436,7 @@ public class InscripcionAlumno extends javax.swing.JInternalFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.Button bBorrarAlumno;
     private java.awt.Button bGuardarAlumno;
     private java.awt.Button bSalirAlumno;
     private java.awt.Button btBuscarXDni;
