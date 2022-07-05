@@ -43,6 +43,7 @@ public class Escritorio extends javax.swing.JFrame {
         jmiAlumno = new javax.swing.JMenuItem();
         jmMateria = new javax.swing.JMenu();
         jmiMateria = new javax.swing.JMenuItem();
+        jMConsultaM = new javax.swing.JMenuItem();
         jmInforme = new javax.swing.JMenu();
         jmiSalir = new javax.swing.JMenuItem();
 
@@ -122,6 +123,14 @@ public class Escritorio extends javax.swing.JFrame {
         });
         jmMateria.add(jmiMateria);
 
+        jMConsultaM.setText("Listado de Alumnos por Materia");
+        jMConsultaM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMConsultaMActionPerformed(evt);
+            }
+        });
+        jmMateria.add(jMConsultaM);
+
         jMenuBar1.add(jmMateria);
 
         jmInforme.setText("Ajustes");
@@ -199,6 +208,16 @@ public class Escritorio extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jmiAlumnoActionPerformed
 
+    private void jMConsultaMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMConsultaMActionPerformed
+            // TODO add your handling code here:
+        jDesktopPane1.removeAll();
+        ConsultaMateria ca = new ConsultaMateria(conexion);
+        ca.setVisible(true);
+        jDesktopPane1.add(ca);
+        jDesktopPane1.moveToFront(ca);
+        jDesktopPane1.repaint();
+    }//GEN-LAST:event_jMConsultaMActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -237,6 +256,7 @@ public class Escritorio extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenuItem jMConsultaM;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;

@@ -100,7 +100,7 @@ public class Materia {
 //TOSTRING
     @Override
     public String toString() {
-        return "Materia{" + "idMateria=" + idMateria + ", nombre=" + nombre + ", anio=" + anio + ", activo=" + activo + '}';
+        return nombre ;
     }
 
 }

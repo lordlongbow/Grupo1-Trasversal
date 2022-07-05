@@ -5,6 +5,18 @@
  */
 package grupo1.trasversal.vistas;
 
+import grupo1.trasversal.Data.AlumnoData;
+import grupo1.trasversal.Data.Conexion;
+import grupo1.trasversal.Data.CursadaData;
+import grupo1.trasversal.Data.MateriaData;
+import grupo1.trasversal.Modelos.Alumno;
+import grupo1.trasversal.Modelos.Cursada;
+import grupo1.trasversal.Modelos.Materia;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Matias Diaz
@@ -14,10 +26,79 @@ public class ConsultaMateria extends javax.swing.JInternalFrame {
     /**
      * Creates new form ConsultaMateria
      */
-    public ConsultaMateria() {
+    
+    
+    private ArrayList<Materia> listaMaterias;
+    private CursadaData cursadaData;
+    private MateriaData materiaData;
+
+    private ArrayList<Alumno> listaAlumnos;
+
+    private AlumnoData alumnoData;
+    private DefaultTableModel modelo;
+    
+    public ConsultaMateria(Conexion conexion) {
         initComponents();
+        cursadaData = new CursadaData(conexion);
+        materiaData = new MateriaData(conexion);
+        alumnoData = new AlumnoData(conexion);
+        listaMaterias = (ArrayList<Materia>) materiaData.obtenerMaterias();
+        cargoCombo();
+        
+        modelo = new DefaultTableModel();
+        armoTabla();
+        cargaAlumnos();
+    }
+    
+    private void armoTabla() {
+
+        //Titulos de Columnas
+        ArrayList<Object> columnas = new ArrayList<>();
+        columnas.add("Apellido");
+        columnas.add("Nombre");
+        columnas.add("Dni");
+        columnas.add("Nota");
+        for (Object it : columnas) {
+
+            modelo.addColumn(it);
+        }
+        tAlumnos.setModel(modelo);
+    }
+    
+    public void cargoCombo(){
+        //Carga las materias al ComboBox
+        Collections.sort(listaMaterias, new Comparator<Materia>() {
+            @Override
+            public int compare(Materia t, Materia t1) {
+                return t.getNombre().compareTo(t1.getNombre());
+            }
+        });
+        for (Materia aux : listaMaterias) {
+            jCMateria.addItem(aux);
+        }
+
     }
 
+    public void cargaAlumnos(){
+        Materia selec = (Materia) jCMateria.getSelectedItem();
+        listaAlumnos=(ArrayList<Alumno>) cursadaData.quienesCursan(selec.getIdMateria());
+        
+        for (Alumno a : listaAlumnos) {
+            modelo.addRow(new Object[]{a.getApellido(), a.getNombre(), a.getDni(), cursadaData.obtenerNota(a, selec)});
+        }
+    }//
+    
+    private void borraFilasTabla() {
+        if (modelo != null) {
+            int a = modelo.getRowCount() - 1;
+
+            for (int i = a; i >= 0; i--) {
+
+                modelo.removeRow(i);
+            }
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,9 +109,14 @@ public class ConsultaMateria extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tAlumnos = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jCMateria = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tAlumnos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -41,31 +127,102 @@ public class ConsultaMateria extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tAlumnos);
+
+        jLabel1.setText("Materia");
+
+        jCMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCMateriaActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Consultar Materias");
+
+        jButton1.setText("Salir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Obtener Listado");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(194, 194, 194))
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(33, 33, 33)
+                                .addComponent(jCMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton2))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(169, 169, 169)
+                        .addComponent(jLabel2)))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(67, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42))
+                .addGap(22, 22, 22)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2))
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addGap(29, 29, 29))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jCMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCMateriaActionPerformed
+        // TODO add your handling code here:
+        borraFilasTabla();
+
+    }//GEN-LAST:event_jCMateriaActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        cargaAlumnos();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox<Materia> jCMateria;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tAlumnos;
     // End of variables declaration//GEN-END:variables
 }
