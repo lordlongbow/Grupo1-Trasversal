@@ -41,11 +41,11 @@ public class Escritorio extends javax.swing.JFrame {
         jMiInscripcion = new javax.swing.JMenuItem();
         jmAlumno = new javax.swing.JMenu();
         jmiAlumno = new javax.swing.JMenuItem();
-        jmInforme = new javax.swing.JMenu();
-        jmiSalir = new javax.swing.JMenuItem();
         jmMateria = new javax.swing.JMenu();
         jmiMateria = new javax.swing.JMenuItem();
         jMConsultaM = new javax.swing.JMenuItem();
+        jmInforme = new javax.swing.JMenu();
+        jmiSalir = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -115,19 +115,6 @@ public class Escritorio extends javax.swing.JFrame {
 
         jMenuBar1.add(jmAlumno);
 
-        jmInforme.setBorder(new javax.swing.border.MatteBorder(null));
-        jmInforme.setText("Ajustes");
-
-        jmiSalir.setText("Salir");
-        jmiSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmiSalirActionPerformed(evt);
-            }
-        });
-        jmInforme.add(jmiSalir);
-
-        jMenuBar1.add(jmInforme);
-
         jmMateria.setBorder(new javax.swing.border.MatteBorder(null));
         jmMateria.setText("Materia");
 
@@ -148,6 +135,19 @@ public class Escritorio extends javax.swing.JFrame {
         jmMateria.add(jMConsultaM);
 
         jMenuBar1.add(jmMateria);
+
+        jmInforme.setBorder(new javax.swing.border.MatteBorder(null));
+        jmInforme.setText("Ajustes");
+
+        jmiSalir.setText("Salir");
+        jmiSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiSalirActionPerformed(evt);
+            }
+        });
+        jmInforme.add(jmiSalir);
+
+        jMenuBar1.add(jmInforme);
 
         setJMenuBar(jMenuBar1);
 
