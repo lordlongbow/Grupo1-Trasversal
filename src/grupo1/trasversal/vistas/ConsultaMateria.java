@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Matias Diaz
+ * @author Grupo 1
  */
 public class ConsultaMateria extends javax.swing.JInternalFrame {
 
