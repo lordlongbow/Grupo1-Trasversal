@@ -17,7 +17,7 @@ public class InscripcionMateria extends javax.swing.JInternalFrame {
 
     private MateriaData md;
     private DefaultTableModel modelo;
-     private ArrayList<Materia> listaMateria;
+    private ArrayList<Materia> listaMateria;
 
     /**
      * Creates new form InscripcionMateria
@@ -25,11 +25,10 @@ public class InscripcionMateria extends javax.swing.JInternalFrame {
     public InscripcionMateria(Conexion conexion) {
         initComponents();
         desactivaCampos();
-       
 
         md = new MateriaData(conexion);
         modelo = new DefaultTableModel();
-        
+
     }
 
     /**
@@ -225,7 +224,8 @@ public class InscripcionMateria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_bSalirMateriaActionPerformed
 
     private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
-        limpiarCampos();  activaCampos();        // TODO add your handling code here:
+        limpiarCampos();
+        activaCampos();        // TODO add your handling code here:
     }//GEN-LAST:event_jbNuevoActionPerformed
 
     private void bGuardarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGuardarMateriaActionPerformed
@@ -236,7 +236,7 @@ public class InscripcionMateria extends javax.swing.JInternalFrame {
         materia.setActivo(true);
 
         if (md.agregarMateria(materia)) {
-            jlIdMateria.setText(materia.getIdMateria()+"");
+            jlIdMateria.setText(materia.getIdMateria() + "");
             JOptionPane.showMessageDialog(null, "Materia Agregada Exitosamente");
             limpiarCampos();
             desactivaCampos();
@@ -298,7 +298,6 @@ public class InscripcionMateria extends javax.swing.JInternalFrame {
     private void jlIdMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jlIdMateriaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jlIdMateriaActionPerformed
-    
 
     private void limpiarCampos() {
 
@@ -319,11 +318,6 @@ public class InscripcionMateria extends javax.swing.JInternalFrame {
         jtMateria.setEnabled(false);
         jtAnioMateria.setEnabled(false);
     }
-    
-    
-       
-
-    
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

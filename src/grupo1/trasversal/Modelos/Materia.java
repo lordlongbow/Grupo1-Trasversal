@@ -1,4 +1,3 @@
-
 package grupo1.trasversal.Modelos;
 
 import java.util.Objects;
@@ -100,7 +99,7 @@ public class Materia {
 //TOSTRING
     @Override
     public String toString() {
-        return nombre ;
+        return nombre;
     }
 
 }

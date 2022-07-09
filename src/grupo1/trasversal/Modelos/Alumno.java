@@ -1,4 +1,3 @@
-
 package grupo1.trasversal.Modelos;
 
 import java.time.LocalDate;
@@ -92,7 +91,7 @@ public class Alumno {
 
     @Override
     public String toString() {
-        return apellido+" "+nombre+" "+dni;
+        return apellido + " " + nombre + " " + dni;
     }
 // HASHCODE
 

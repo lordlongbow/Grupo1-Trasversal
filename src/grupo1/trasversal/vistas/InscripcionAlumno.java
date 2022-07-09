@@ -260,32 +260,32 @@ public class InscripcionAlumno extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_bSalirAlumnoActionPerformed
 
     private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
-        limpiarCampos(); activaCampos();
-         bGuardarAlumno.setEnabled(true);
+        limpiarCampos();
+        activaCampos();
+        bGuardarAlumno.setEnabled(true);
         btBuscarXDni.setEnabled(true);
         btBuscarXId.setEnabled(true);
     }//GEN-LAST:event_jbNuevoActionPerformed
 
     private void bGuardarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGuardarAlumnoActionPerformed
-        jbActualizar.setEnabled(false);        
-         String nombre = jtNombreAlumno.getText();
-        String apellido = jtApellidoAlumno.getText();        
+        jbActualizar.setEnabled(false);
+        String nombre = jtNombreAlumno.getText();
+        String apellido = jtApellidoAlumno.getText();
         Long dni = Long.parseLong(jtDni.getText());
         Boolean activo = jcbActivo.isSelected();
-        
+
         //Obtenemos la fecja del jcalendar y la pasamos a LocalDate
-        SimpleDateFormat formatoFecha = new SimpleDateFormat("dd-MM-yyyy");        
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("dd-MM-yyyy");
         String fecha = formatoFecha.format(jdFechaNacimiento.getDate());
         LocalDate fechNac = LocalDate.parse(fecha, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-        
-        
+
         //(int idAlumno, String nombre, String apellido, LocalDate fechNac, long dni, boolean activo) {
-        Alumno alumno = new Alumno(nombre,apellido,fechNac,dni,activo);
-        if(ad.agregarAlumno(alumno)){
-            jtIdAlumno.setText(alumno.getIdAlumno()+"");
-            JOptionPane.showMessageDialog(this, "Alumno Agregado con Exito");            
+        Alumno alumno = new Alumno(nombre, apellido, fechNac, dni, activo);
+        if (ad.agregarAlumno(alumno)) {
+            jtIdAlumno.setText(alumno.getIdAlumno() + "");
+            JOptionPane.showMessageDialog(this, "Alumno Agregado con Exito");
             jbNuevo.setEnabled(true);
-            
+
         }
 
     }//GEN-LAST:event_bGuardarAlumnoActionPerformed
@@ -304,43 +304,43 @@ public class InscripcionAlumno extends javax.swing.JInternalFrame {
             jdFechaNacimiento.setDate(java.sql.Date.valueOf(alumno.getFechNac()));
             jcbActivo.setSelected(alumno.isActivo());
 
-        }else{
+        } else {
             JOptionPane.showMessageDialog(this, "No hay alumno con ese DNI");
         }
-        
+
 
     }//GEN-LAST:event_btBuscarXDniActionPerformed
 
     private void jbActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbActualizarActionPerformed
-         int id=-1;
-          bGuardarAlumno.setEnabled(false);
-       /* try{
+        int id = -1;
+        bGuardarAlumno.setEnabled(false);
+        /* try{
             id=Integer.parseInt(jtDni.getText());
         }catch(Exception ex){
         
              JOptionPane.showMessageDialog(this, "Usted debe ingresar un numero");
              jtDni.requestFocus();
         }*/
-        id=Integer.parseInt(jtIdAlumno.getText());
-        String nom=jtNombreAlumno.getText();    
-        String ape=jtApellidoAlumno.getText();
-        long dni=-1;
-        try{
-             dni=Long.parseLong(jtDni.getText());
-        }catch(Exception e){
-        
-             JOptionPane.showMessageDialog(this, "Usted debe ingresar un numero");
-             jtDni.requestFocus();
-            
+        id = Integer.parseInt(jtIdAlumno.getText());
+        String nom = jtNombreAlumno.getText();
+        String ape = jtApellidoAlumno.getText();
+        long dni = -1;
+        try {
+            dni = Long.parseLong(jtDni.getText());
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(this, "Usted debe ingresar un numero");
+            jtDni.requestFocus();
+
         }
-        SimpleDateFormat formatoFecha = new SimpleDateFormat("dd-MM-yyyy");        
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("dd-MM-yyyy");
         String fecha = formatoFecha.format(jdFechaNacimiento.getDate());
         LocalDate fechNac = LocalDate.parse(fecha, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-   
-        boolean estado=jcbActivo.isSelected();
-        Alumno alumno=new Alumno(id,nom,ape,fechNac,dni,estado);
-        if(ad.modificarAlumno(alumno)){
-        
+
+        boolean estado = jcbActivo.isSelected();
+        Alumno alumno = new Alumno(id, nom, ape, fechNac, dni, estado);
+        if (ad.modificarAlumno(alumno)) {
+
             JOptionPane.showMessageDialog(this, "Alumno modificado con Exito");
         }
     }//GEN-LAST:event_jbActualizarActionPerformed
@@ -359,7 +359,7 @@ public class InscripcionAlumno extends javax.swing.JInternalFrame {
             jdFechaNacimiento.setDate(java.sql.Date.valueOf(alumno.getFechNac()));
             jcbActivo.setSelected(alumno.isActivo());
 
-        }else{
+        } else {
             JOptionPane.showMessageDialog(this, "No hay un alumno activo asociado a ese legajo");
         }
     }//GEN-LAST:event_btBuscarXIdActionPerformed

@@ -142,6 +142,7 @@ public class MateriaData {
 
         return materia;
     }
+
     public Materia obtenerMateriaXAnio(int anio) {
 
         Materia materia = null;
@@ -167,9 +168,9 @@ public class MateriaData {
 
         return materia;
     }
-    
-    public HashMap<Integer,Integer> obtenerAnios(){
-        HashMap<Integer,Integer> anios = new HashMap<Integer,Integer>();
+
+    public HashMap<Integer, Integer> obtenerAnios() {
+        HashMap<Integer, Integer> anios = new HashMap<Integer, Integer>();
         Materia materia;
         int i = -1;
         try {
@@ -179,7 +180,7 @@ public class MateriaData {
 
             while (resultSet.next()) {
                 i++;
-                anios.put(i,resultSet.getInt("anio"));
+                anios.put(i, resultSet.getInt("anio"));
             }
             ps.close();
         } catch (SQLException ex) {

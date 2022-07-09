@@ -26,8 +26,6 @@ public class ConsultaMateria extends javax.swing.JInternalFrame {
     /**
      * Creates new form ConsultaMateria
      */
-    
-    
     private ArrayList<Materia> listaMaterias;
     private CursadaData cursadaData;
     private MateriaData materiaData;
@@ -36,7 +34,7 @@ public class ConsultaMateria extends javax.swing.JInternalFrame {
 
     private AlumnoData alumnoData;
     private DefaultTableModel modelo;
-    
+
     public ConsultaMateria(Conexion conexion) {
         initComponents();
         cursadaData = new CursadaData(conexion);
@@ -44,12 +42,12 @@ public class ConsultaMateria extends javax.swing.JInternalFrame {
         alumnoData = new AlumnoData(conexion);
         listaMaterias = (ArrayList<Materia>) materiaData.obtenerMaterias();
         cargoCombo();
-        
+
         modelo = new DefaultTableModel();
         armoTabla();
         cargaAlumnos();
     }
-    
+
     private void armoTabla() {
 
         //Titulos de Columnas
@@ -64,8 +62,8 @@ public class ConsultaMateria extends javax.swing.JInternalFrame {
         }
         tAlumnos.setModel(modelo);
     }
-    
-    public void cargoCombo(){
+
+    public void cargoCombo() {
         //Carga las materias al ComboBox
         Collections.sort(listaMaterias, new Comparator<Materia>() {
             @Override
@@ -79,15 +77,15 @@ public class ConsultaMateria extends javax.swing.JInternalFrame {
 
     }
 
-    public void cargaAlumnos(){
+    public void cargaAlumnos() {
         Materia selec = (Materia) jCMateria.getSelectedItem();
-        listaAlumnos=(ArrayList<Alumno>) cursadaData.quienesCursan(selec.getIdMateria());
-        
+        listaAlumnos = (ArrayList<Alumno>) cursadaData.quienesCursan(selec.getIdMateria());
+
         for (Alumno a : listaAlumnos) {
             modelo.addRow(new Object[]{a.getApellido(), a.getNombre(), a.getDni(), cursadaData.obtenerNota(a, selec)});
         }
     }//
-    
+
     private void borraFilasTabla() {
         if (modelo != null) {
             int a = modelo.getRowCount() - 1;
@@ -98,7 +96,7 @@ public class ConsultaMateria extends javax.swing.JInternalFrame {
             }
         }
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

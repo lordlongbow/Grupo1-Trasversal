@@ -89,33 +89,30 @@ public class CursadaData {
         return inscripciones;
     }
 
-    
-    
-    
-    public boolean actualizarNota(Alumno alu,Materia mat, double nota){
+    public boolean actualizarNota(Alumno alu, Materia mat, double nota) {
         boolean cargado = false;
-    try {
+        try {
             String sql = "UPDATE cursada SET nota = ? WHERE idAlumno=? and idMateria=?;";
-           
+
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setDouble(1, nota);
             ps.setInt(2, alu.getIdAlumno());
             ps.setInt(3, mat.getIdMateria());
-            
-            if(ps.executeUpdate()!=0){
-                cargado=true;
-             }
-            
+
+            if (ps.executeUpdate() != 0) {
+                cargado = true;
+            }
+
             ps.close();
-            
+
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al obtener las inscripciones: " + ex.getMessage());
         }
 
         return cargado;
-    
+
     }
-    
+
 //    public boolean borrarCursada(int id){
 //         boolean borrado=false;
 //         String sql= "DELETE FROM cursada WHERE id='?';";
@@ -133,10 +130,9 @@ public class CursadaData {
 //         return borrado;
 //    }
 //    
-    
-     public boolean borrarCursada(int idAlumno, int idMateria) {
+    public boolean borrarCursada(int idAlumno, int idMateria) {
         boolean result = true;
-        String sql = "DELETE FROM `cursada` WHERE cursada.idAlumno =" + idAlumno+" and idMateria= "+idMateria;
+        String sql = "DELETE FROM `cursada` WHERE cursada.idAlumno =" + idAlumno + " and idMateria= " + idMateria;
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             int rs = ps.executeUpdate();
@@ -153,7 +149,7 @@ public class CursadaData {
 
         return result;
     }
-    
+
 //    public List<Materia> alumnoCursa(int idAlumno){
 //     
 //        ArrayList<Materia> materias = new ArrayList<Materia>();
@@ -179,7 +175,6 @@ public class CursadaData {
 //
 //        return materias;
 //     }
-    
     public ArrayList<Materia> materiasInscriptoAlumno(Alumno alumno) {
         ArrayList<Materia> materias = new ArrayList();
         try {
@@ -197,32 +192,32 @@ public class CursadaData {
         }
         return materias;
     }
-    
-    public double obtenerNota(Alumno alu, Materia mat){
-        double nota=0;
-    try {
+
+    public double obtenerNota(Alumno alu, Materia mat) {
+        double nota = 0;
+        try {
             String sql = "SELECT nota FROM cursada WHERE idAlumno=? and idMateria=?;";
-           
+
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, alu.getIdAlumno());
             ps.setInt(2, mat.getIdMateria());
             ResultSet rs = ps.executeQuery();
-            while(rs.next()){
-                nota=rs.getDouble("nota");
-             }
-            
+            while (rs.next()) {
+                nota = rs.getDouble("nota");
+            }
+
             ps.close();
-            
+
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al obtener notas: " + ex.getMessage());
         }
 
         return nota;
-    
+
     }
-    
-    public List<Materia> alumnoNoCursa(int idAlumno){
-     
+
+    public List<Materia> alumnoNoCursa(int idAlumno) {
+
         ArrayList<Materia> materias = new ArrayList<Materia>();
 // SELECT idMateria,nombre FROM cursada, materia WHERE idAlumno = ? AND cursada.idMateria = materia.idMateria;
         try {
@@ -230,7 +225,7 @@ public class CursadaData {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, idAlumno);
             ResultSet resultSet = ps.executeQuery();
-             Materia materia;
+            Materia materia;
             while (resultSet.next()) {
                 materia = new Materia();
                 materia.setIdMateria(resultSet.getInt("idMateria"));
@@ -241,14 +236,14 @@ public class CursadaData {
             }
             ps.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null,"Error al obtener la materia");
+            JOptionPane.showMessageDialog(null, "Error al obtener la materia");
         }
 
         return materias;
-     }
-    
-    public List<Alumno> quienesCursan (int idMateria){
-     
+    }
+
+    public List<Alumno> quienesCursan(int idMateria) {
+
         ArrayList<Alumno> alumnos = new ArrayList<Alumno>();
 
         try {
@@ -270,17 +265,17 @@ public class CursadaData {
             }
             ps.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null,"Error al obtener la materia");
+            JOptionPane.showMessageDialog(null, "Error al obtener la materia");
         }
 
         return alumnos;
-     }
+    }
     /*
     Funcionalidades que faltarían:
 Borrar una cursada (delete) _/
 Dado un alumno nos devuelva las materias en las que está inscripto _/
 Dado un alumno nos devuelva las materias en las que NO está inscripto _/
 Dada una materia nos devuelva los alumnos inscriptos en ella. _/
-    */
+     */
 
 }
